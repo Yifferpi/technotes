@@ -58,7 +58,7 @@ mostly used for
 
 # Bash Script Examples
 ## Asking user for confirmation
-```
+```bash
 while true; do
     # read is the most common way to ask for user input:
     read -p "Do you wish to install this program?" yn
@@ -70,7 +70,7 @@ while true; do
 done
 ```
 ## while loop
-```
+```bash
 while true
 do
     read -p "Really run script?" answer

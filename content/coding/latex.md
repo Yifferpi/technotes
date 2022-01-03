@@ -1,10 +1,11 @@
----
-title: "Latex"
-date: 2021-12-29T21:29:10+01:00
-draft: false
----
++++
+title = "Latex"
+tags = ["writing"]
++++
 
 # Personal Latex cheat sheet
+
+Mostly a summary of "Not so short Intro to LaTex"
 
 ## Commands and Rules
 - empty line between two lines defines a new paragraph

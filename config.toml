@@ -1,10 +1,26 @@
-baseurl = "https://example.com/"
+baseurl = "https://yifferpi.ch/"
 languageCode = "en-us"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "relearn"
 
+[params]
+author = "Basil Ottinger"
+description = "Tech Blog / Tutorial Site"
+#disable copy-to-clipboard button for inline code
+disableInlineCopyToClipBoard = true
+themeVariant = "blue"
+
 # For search functionality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub"
+identifier = "ds"
+url = "https://github.com/yifferpi"
+weight = 10
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-tags'></i> Tags"
+url = "/tags/"
+weight = 40
