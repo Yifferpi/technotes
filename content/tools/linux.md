@@ -1,10 +1,10 @@
 ---
-title: "Linux directory structure"
+title: "Linux Essentials"
 date: 2021-12-28T10:06:13+01:00
 draft: false
 ---
 
-# /etc
+## directory structure
 
 contains all sorts of configuration files
 - `/etc/passwd`: userlist
@@ -24,9 +24,14 @@ not present on every machine
 
 - `/etc/NetworkManager/system-connectons`: wifi connections, SSIDs
 
-# /var
 
 Variable content that is changed by programs. Prominently:
 
 - `/var/log`: place where many logfiles are
 
+## Interprocess Communication (IPC)
+- Good [Resource](https://opensource.com/sites/default/files/gated-content/inter-process_communication_in_linux.pdf)
+- [sockets AF_NET, etch](https://stackoverflow.com/questions/51008595/what-is-the-purpose-of-sock-dgram-and-sock-stream-in-the-context-af-unix-sockets)
+
+## General
+[tty, etc](https://dev.to/napicella/linux-terminals-tty-pty-and-shell-192e)
