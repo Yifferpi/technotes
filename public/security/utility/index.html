@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>utility tools :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/security/utility/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -94,10 +93,10 @@
           <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
           <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li>
           <li data-nav-id="/misc/vim/" title="Vim" class="dd-item"><a href="/misc/vim/">Vim</a></li></ul></li>
-          <li data-nav-id="/security/" title="Security" class="dd-item"><a href="/security/">Security</a><ul>
+          <li data-nav-id="/security/" title="Security" class="dd-item parent"><a href="/security/">Security</a><ul>
           <li data-nav-id="/security/attack_types/" title="attack types / classes" class="dd-item"><a href="/security/attack_types/">attack types / classes</a></li>
           <li data-nav-id="/security/firewalls/" title="Firewall" class="dd-item"><a href="/security/firewalls/">Firewall</a></li>
-          <li data-nav-id="/security/utility/" title="utility tools" class="dd-item"><a href="/security/utility/">utility tools</a></li>
+          <li data-nav-id="/security/utility/" title="utility tools" class="dd-item active"><a href="/security/utility/">utility tools</a></li>
           <li data-nav-id="/security/wireguard/" title="VPN" class="dd-item"><a href="/security/wireguard/">VPN</a></li></ul></li>
           <li data-nav-id="/about/" title="About" class="dd-item"><a href="/about/">About</a><ul></ul></li>
         </ul>
@@ -119,28 +118,101 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/security/"><span itemprop="name">Security</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/security/utility/" aria-disabled="true"><span itemprop="name">utility tools</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ghidra">Ghidra</a></li>
+    <li><a href="#gdb">GDB</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>utility tools</h1>
+
+<!-- raw HTML omitted -->
+<ul>
+<li><code>sha256sum file</code>: compute checksum</li>
+<li><code>sha256 -c sha256sumfile</code>: to check</li>
+</ul>
+<h2 id="ghidra">Ghidra</h2>
+<p>reverse engineering tool with great decompiler</p>
+<ul>
+<li>
+<p>start project, then open file in CodeBrowser</p>
+</li>
+<li>
+<p>accept analyzing</p>
+</li>
+<li>
+<p>Menu&gt;Window gives a series of views, e.g. <code>Defined Strings</code>, <code>Function Graph</code>, and <code>Function Call Graph</code></p>
+</li>
+</ul>
+<h2 id="gdb">GDB</h2>
+<ul>
+<li>
+<p><code>br *main+12</code>: setting breakpoint</p>
+</li>
+<li>
+<p><code>s</code>: stepping one instr</p>
+</li>
+<li>
+<p><code>finish</code>: continue to return statement of current function</p>
+</li>
+<li>
+<p><code>continue</code>: continue regular execution until next break</p>
+</li>
+<li>
+<p><code>info frame 0</code>: print some info about frame 0</p>
+</li>
+<li>
+<p><code>x/4w $sp</code> or <code>x/4w x7fffde60</code>: print 4 words starting at stack pointer or given address</p>
+</li>
+<li>
+<p><code>x/s $rdi</code>: print value in rdi formated as a string</p>
+</li>
+<li>
+<p><code>x/10i</code>, <code>x/xg</code>, <code>x/20xb</code></p>
+</li>
+<li>
+<p><code>set $buffer=0x7ffffffddd0</code>: set arbitrary variable, must not exist in HW</p>
+</li>
+<li>
+<p><code>ni</code>: show next instruction</p>
+</li>
+<li>
+<p><code>vmmap</code>: show all memory regions mapped to our virtual memory</p>
+</li>
+<li>
+<p>gdb disables <em>Address Space Layout Randomization</em> (ASLR) by default.</p>
+</li>
+<li>
+<p>turn on with <code>aslr on</code> before <code>run</code></p>
+</li>
+<li>
+<p>printing addresses with <code>print main</code>, subtracting labels allowed!</p>
+</li>
+<li>
+<p><code>checksec</code>: display which security measures are active in the binary</p>
+</li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/security/firewalls/" title="Firewall"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/security/wireguard/" title="VPN"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

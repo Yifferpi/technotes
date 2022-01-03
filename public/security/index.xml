@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on </title>
+    <link>https://example.com/security/</link>
+    <description>Recent content in Security on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://example.com/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>attack types / classes</title>
+      <link>https://example.com/security/attack_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/security/attack_types/</guid>
+      <description>In this article, we list common attack paradigms / patterns, try to explain them, and potentially list examples.
+ proxy attack: contact other host for faster computation of checksum in the context of time-based attestation downgrade attack: force a key exchange protocol to use weaker cryptographic primitives than either participant supports man-in-the-middle attack: pretend to both participants to be the other participant side-channel attacks: any attack based not on the protocol but on a concrete implementation, where information to reduce the keyspace is leaked over a so-called &amp;lsquo;side channel&amp;rsquo;  </description>
+    </item>
+    <item>
+      <title>Firewall</title>
+      <link>https://example.com/security/firewalls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/security/firewalls/</guid>
+      <description>iptables  General concepts  nftables a good resource
+ nft --handle list ruleset: lists rules including handles nft insert rule inet filter input ip saddr grader.dtf.netsec.inf.ethz.ch accept nft delete rule inet filter input handle 17 nft add rule inet filter input tcp dport 5432 drop  ufw Unix firewall
+gufw for graphical version</description>
+    </item>
+    <item>
+      <title>utility tools</title>
+      <link>https://example.com/security/utility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/security/utility/</guid>
+      <description>sha256sum file: compute checksum sha256 -c sha256sumfile: to check  Ghidra reverse engineering tool with great decompiler
+  start project, then open file in CodeBrowser
+  accept analyzing
+  Menu&amp;gt;Window gives a series of views, e.g. Defined Strings, Function Graph, and Function Call Graph
+  GDB   br *main+12: setting breakpoint
+  s: stepping one instr
+  finish: continue to return statement of current function</description>
+    </item>
+    <item>
+      <title>VPN</title>
+      <link>https://example.com/security/wireguard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/security/wireguard/</guid>
+      <description>Wireguard Install with apt install wireguard
+After installation:
+sudo su cd /etc/wireguard umask 077 to protect wireguard directory appropriately
+Command to generate key pair for server: wg genkey | tee server_private_key | wg pubkey &amp;gt; server_public_key Repeat for each peer
+Create a wg0.conf file in /etc/wireguard on the server side:
+[Interface] Address = 10.253.3.1/24 SaveConfig = true PrivateKey = &amp;lt;insert server_private_key&amp;gt; ListenPort = 51900 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] PublicKey = &amp;lt;insert client_public_key&amp;gt; AllowedIPs = 10.</description>
+    </item>
+  </channel>
+</rss>

@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>System Management :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/tools/system_management/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -84,11 +83,11 @@
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
-          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item parent"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
-          <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
+          <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item active"><a href="/tools/system_management/">System Management</a></li>
           <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
           <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
           <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
@@ -119,28 +118,97 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/tools/"><span itemprop="name">Tools / Concepts</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tools/system_management/" aria-disabled="true"><span itemprop="name">System Management</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#nmcli">nmcli</a></li>
+    <li><a href="#bluetoothctl">bluetoothctl</a></li>
+    <li><a href="#system-control">System control</a></li>
+    <li><a href="#device-listing">device listing</a></li>
+    <li><a href="#xrandr">xrandr</a>
+      <ul>
+        <li><a href="#autostart">Autostart</a></li>
+        <li><a href="#mounting-a-device">Mounting a device</a></li>
+        <li><a href="#systemctl">systemctl</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>System Management</h1>
+
+<p>This page is concerned with tools that help with management of a linux (ubuntu)
+system from the command line.</p>
+<h2 id="nmcli">nmcli</h2>
+<ul>
+<li><code>nmcli dev wifi</code> to list available wifi</li>
+<li><code>nmcli dev wifi connect SSID --ask</code>: connect to a new wifi</li>
+<li><code>nmcli con [up|down] SSID</code> manage stored connection</li>
+</ul>
+<p><code>nm-applet</code> for i3bar utility</p>
+<h2 id="bluetoothctl">bluetoothctl</h2>
+<ul>
+<li><code>bluetoothctl</code> to enter interactive</li>
+</ul>
+<p>in bluetooth, you pair once (exchange initial info) and then connect
+(two distinct steps!)<br>
+trusting a device means it will autoconnect to that device</p>
+<h2 id="system-control">System control</h2>
+<ul>
+<li><code>pavucontrol</code>: graphical sound manager</li>
+</ul>
+<h2 id="device-listing">device listing</h2>
+<ul>
+<li><code>lsblk -p</code>: list all storage devices</li>
+<li><code>lsblk -f</code>: list only mounted</li>
+<li><code>lsusb</code>: todo</li>
+<li><code>lspci</code>: todo</li>
+</ul>
+<h2 id="xrandr">xrandr</h2>
+<p>todo</p>
+<h3 id="autostart">Autostart</h3>
+<ul>
+<li>cron <code>on reboot</code></li>
+<li><code>systemctl [enable|disable] postgres</code>: add/remove from autostart
+works only if service is stopped</li>
+</ul>
+<h3 id="mounting-a-device">Mounting a device</h3>
+<ul>
+<li><code>sudo mount /dev/sda ~/mountdir</code></li>
+<li><code>sudo umount [device|dir]</code></li>
+</ul>
+<h3 id="systemctl">systemctl</h3>
+<ul>
+<li><code>systemctl list-dependencies &lt;service&gt;</code></li>
+<li><code>systemctl is-active &lt;service&gt;</code></li>
+</ul>
+<p>There are different types of systemd units.</p>
+<p>Some example commands:</p>
+<ul>
+<li><code>systemctl list-units --type=service --state=active</code></li>
+<li><code>systemctl status nginx.service</code></li>
+<li><a href="https://opensource.com/article/20/5/systemd-units">systemd unit types</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files">systemd unit files</a></li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/tools/ssh/" title="ssh"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/tools/linux/" title="Linux Essentials"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools / Concepts on </title>
+    <link>https://example.com/tools/</link>
+    <description>Recent content in Tools / Concepts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Dec 2021 10:06:13 +0100</lastBuildDate><atom:link href="https://example.com/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://example.com/tools/git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tools/git/</guid>
+      <description> find / -name &amp;quot;.git&amp;quot; to find all gitrepos prettyprint the graph: git log --all --decorate --oneline --graph git branch &amp;lt;branchname&amp;gt; to create new branch git branch -a to list all branches git checkout &amp;lt;branchname&amp;gt; to checkout existing branch git branch -f &amp;lt;source&amp;gt; &amp;lt;target&amp;gt; to move a branch. You cannot be on target. forward port reachable from remote host: ssh -L localport:192.168.x.x:remoteport user@domain.tld  </description>
+    </item>
+    <item>
+      <title>Networking tools</title>
+      <link>https://example.com/tools/networking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tools/networking/</guid>
+      <description>tcpdump Usage  tcpdump -i &amp;lt;interface&amp;gt; three steps of verbosity: -v -vv -vvv finding ssh connections independent of port used: tcpdump &#39;tcp[(tcp[12]&amp;gt;&amp;gt;2):4] = 0x5353482D&#39;  Resources A tcpdump Tutorial with Examples
+Wireshark Wireshark is the GUI application and Tshark the command line version. Wireshard makes packets more readible but the filtering system is essentially the same.
+nmap Host discovery Ping Scan: nmap -sP 192.168.1.0/24
+ in newer versions, this is called -sn can be prettified with -oG - (greppable output)  List Scan: nmap -sL 192.</description>
+    </item>
+    <item>
+      <title>ssh</title>
+      <link>https://example.com/tools/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tools/ssh/</guid>
+      <description>Secure SHell SSH  forward port reachable from remote host: ssh -L localport:192.168.x.x:remoteport user@domain.tld -p flag to use a different port backticks to execute a command remotely!  ssh-copy-id user@host to copy own public key to host
+SSHD config file location: /etc/ssh/sshd_config
+ set PubkeyAuthentification to yes for auth via public key set PasswordAuthentication to no to only allow public key systemctl restart sshd.service for changes to take effect  all of the above requires sudo</description>
+    </item>
+    <item>
+      <title>System Management</title>
+      <link>https://example.com/tools/system_management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.com/tools/system_management/</guid>
+      <description>This page is concerned with tools that help with management of a linux (ubuntu) system from the command line.
+nmcli  nmcli dev wifi to list available wifi nmcli dev wifi connect SSID --ask: connect to a new wifi nmcli con [up|down] SSID manage stored connection  nm-applet for i3bar utility
+bluetoothctl  bluetoothctl to enter interactive  in bluetooth, you pair once (exchange initial info) and then connect (two distinct steps!</description>
+    </item>
+    <item>
+      <title>Linux Essentials</title>
+      <link>https://example.com/tools/linux/</link>
+      <pubDate>Tue, 28 Dec 2021 10:06:13 +0100</pubDate>
+      <guid>https://example.com/tools/linux/</guid>
+      <description>directory structure contains all sorts of configuration files
+  /etc/passwd: userlist
+  /etc/shadow: userlist including password hashes
+  /etc/group: groups and list of users that belong to it
+  /etc/environment: global environment variables
+  /etc/hosts: static lookup table for hostnames, superseded by DNS
+  /etc/hostname: static hostname used to init kernel hostname
+  /etc/machine-info: contains info like location, chassis, prettyname, etc. not present on every machine</description>
+    </item>
+  </channel>
+</rss>

@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Python :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/coding/python/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -79,9 +78,9 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
           <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
-          <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
+          <li data-nav-id="/coding/python/" title="Python" class="dd-item active"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
           <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
@@ -119,28 +118,64 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/coding/"><span itemprop="name">Coding / Languages</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/coding/python/" aria-disabled="true"><span itemprop="name">Python</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtual-environments">Virtual Environments</a></li>
+    <li><a href="#general-resources">General Resources</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Python</h1>
+
+<h2 id="virtual-environments">Virtual Environments</h2>
+<p>venv for python</p>
+<p>allows to install Python packages and a Python Interpreter in an
+isolated location from the rest of the system instead of installing
+globally</p>
+<p>Reasons:</p>
+<ul>
+<li>preventing version conflict</li>
+</ul>
+<p>Isolation could be separate PC, separate VM, a docker container or a venv</p>
+<p>How to set up:
+<code>python -m</code> select a module from sys.path to run as a script</p>
+<ul>
+<li>for pythn3.4 and above, there is the baked-in package <code>venv</code></li>
+<li>for versions below, use <code>virtualenv</code> (might need systemwide install first)</li>
+</ul>
+<p>For python3.4 and above:</p>
+<ul>
+<li><code>python -m venv &lt;directory&gt;</code> to create a virtual environment in <!-- raw HTML omitted --></li>
+<li><code>source &lt;directory&gt;/bin/activate</code> to activate the environment</li>
+<li><code>deactivate</code> to deactivate the environment</li>
+<li>if created with <code>python -m venv</code>, simply remove the directory to delete env</li>
+</ul>
+<p>the environment is active on the entire system. internally, it works by
+modifying the head of the path variable.</p>
+<p><a href="https://python.land/virtual-environments/virtualenv">Resource</a></p>
+<h2 id="general-resources">General Resources</h2>
+<p><a href="https://scicomp.ethz.ch/wiki/Python/Manual/3.6.0">Python Tutorials</a>
+<a href="https://www.codementor.io/blog/python-web-scraping-63l2v9sf2q">Advanced Python Webscraping</a></p>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/coding/ansible/" title="Ansible"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/coding/bash/" title="Bash"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

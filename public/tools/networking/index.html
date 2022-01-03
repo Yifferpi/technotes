@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Networking tools :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/tools/networking/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -84,9 +83,9 @@
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
-          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item parent"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
-          <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
+          <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item active"><a href="/tools/networking/">Networking tools</a></li>
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
           <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
@@ -119,28 +118,96 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/tools/"><span itemprop="name">Tools / Concepts</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tools/networking/" aria-disabled="true"><span itemprop="name">Networking tools</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tcpdump">tcpdump</a>
+      <ul>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#wireshark">Wireshark</a></li>
+    <li><a href="#nmap">nmap</a>
+      <ul>
+        <li><a href="#host-discovery">Host discovery</a></li>
+      </ul>
+    </li>
+    <li><a href="#netcat">netcat</a></li>
+    <li><a href="#netdiscover">netdiscover</a></li>
+    <li><a href="#ip">ip</a></li>
+    <li><a href="#dns">DNS</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Networking tools</h1>
+
+<h2 id="tcpdump">tcpdump</h2>
+<h3 id="usage">Usage</h3>
+<ul>
+<li><code>tcpdump -i &lt;interface&gt;</code></li>
+<li>three steps of verbosity: <code>-v -vv -vvv</code></li>
+<li>finding ssh connections independent of port used:
+<code>tcpdump 'tcp[(tcp[12]&gt;&gt;2):4] = 0x5353482D'</code></li>
+</ul>
+<h3 id="resources">Resources</h3>
+<p><a href="https://danielmiessler.com/study/tcpdump/">A tcpdump Tutorial with Examples</a></p>
+<h2 id="wireshark">Wireshark</h2>
+<p>Wireshark is the GUI application and Tshark the command line version.
+Wireshard makes packets more readible but the filtering system is essentially the same.</p>
+<h2 id="nmap">nmap</h2>
+<h3 id="host-discovery">Host discovery</h3>
+<p>Ping Scan:
+<code>nmap -sP 192.168.1.0/24</code></p>
+<ul>
+<li>in newer versions, this is called <code>-sn</code></li>
+<li>can be prettified with <code>-oG -</code> (greppable output)</li>
+</ul>
+<p>List Scan:
+<code>nmap -sL 192.168.1.0/24</code>
+<code>nmap -sP -PN -R --system-dns 192.168.2.0/24 | grep -i .wg</code></p>
+<p><code>-R</code>: DNS resolution for all targets, not only responsive hosts</p>
+<ul>
+<li><code>-sP</code>: see <code>-sn</code></li>
+<li><code>-Pn</code>: (No ping), skips discovery stage alltogether, <code>-PN</code> in older versions</li>
+</ul>
+<p><code>nmap -sP -sn -oG - 192.168.2.0/24</code></p>
+<ul>
+<li><code>-sn</code>: Ping Scan - disable port scan, <code>-sP</code> in older versions</li>
+<li><a href="https://nmap.org/book/man-nse.html">nmap scripting engine</a></li>
+<li><a href="https://securitytrails.com/blog/nmap-commands">nmap commands</a></li>
+<li><a href="https://showmehacker.medium.com/nmap-perform-information-gathering-beginners-detailed-explanation-c37e51a85fbf">nmap overview</a></li>
+</ul>
+<h2 id="netcat">netcat</h2>
+<p>todo</p>
+<h2 id="netdiscover">netdiscover</h2>
+<p>todo</p>
+<h2 id="ip">ip</h2>
+<p><a href="https://www.lartc.org/lartc.html">Resource</a></p>
+<h2 id="dns">DNS</h2>
+<ul>
+<li><code>dig &lt;domainname&gt;</code></li>
+<li><code>systemd-resolve --statistics</code> and <code>systemd-resolve --flush-cache</code></li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/tools/git/" title="git"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/tools/ssh/" title="ssh"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

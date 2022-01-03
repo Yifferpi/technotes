@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>git :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/tools/git/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -84,8 +83,8 @@
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
-          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
-          <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item parent"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/git/" title="git" class="dd-item active"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
@@ -119,28 +118,39 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/tools/"><span itemprop="name">Tools / Concepts</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tools/git/" aria-disabled="true"><span itemprop="name">git</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>git</h1>
+
+<ul>
+<li><code>find / -name &quot;.git&quot;</code> to find all gitrepos</li>
+<li>prettyprint the graph: <code>git log --all --decorate --oneline --graph</code></li>
+<li><code>git branch &lt;branchname&gt;</code> to create new branch</li>
+<li><code>git branch -a</code> to list all branches</li>
+<li><code>git checkout &lt;branchname&gt;</code> to checkout existing branch</li>
+<li><code>git branch -f &lt;source&gt; &lt;target&gt;</code> to move a branch. You cannot be on target.</li>
+<li>forward port reachable from remote host: <code>ssh -L localport:192.168.x.x:remoteport user@domain.tld</code></li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/tools/" title="Tools / Concepts"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/tools/networking/" title="Networking tools"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

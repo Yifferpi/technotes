@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Latex :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/coding/latex/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -79,11 +78,11 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
           <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
-          <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
+          <li data-nav-id="/coding/latex/" title="Latex" class="dd-item active"><a href="/coding/latex/">Latex</a></li></ul></li>
           <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
@@ -119,28 +118,225 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/coding/"><span itemprop="name">Coding / Languages</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/coding/latex/" aria-disabled="true"><span itemprop="name">Latex</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#commands-and-rules">Commands and Rules</a>
+      <ul>
+        <li><a href="#comments">Comments</a></li>
+        <li><a href="#layout">Layout</a></li>
+        <li><a href="#typesetting">Typesetting</a></li>
+      </ul>
+    </li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Latex</h1>
+
+<h1 id="personal-latex-cheat-sheet">Personal Latex cheat sheet</h1>
+<h2 id="commands-and-rules">Commands and Rules</h2>
+<ul>
+<li>empty line between two lines defines a new paragraph</li>
+<li>single new line is treated as a regular single whitespace</li>
+<li>multiple whitespaces are treated as a regular single whitespace</li>
+<li>whitespaces after commands are ignored</li>
+<li>to get whitespace after command add empty params <code>{}</code> and a whitespace</li>
+<li>commands take required params in <code>{}</code> and optional params in <code>[]</code></li>
+</ul>
+<h3 id="comments">Comments</h3>
+<ul>
+<li>comments are done with <code>%</code></li>
+<li><code>%</code> can also be used to split lines where no space is allowed</li>
+<li>for longer comment, use comment environment from <code>verbatim</code> package:</li>
+</ul>
+<pre tabindex="0"><code>\begin{comment} 
+... 
+\end{comment}
+</code></pre><h3 id="layout">Layout</h3>
+<p><strong>Structure</strong></p>
+<ul>
+<li>every input file must start with <code>\documentclass{...}</code></li>
+<li>after that, commands that influence style of entire doc or load packages</li>
+<li>when setup work is done: <code>\begin{document} ... \end{document</code></li>
+<li>anything after end will be <strong>ignored</strong></li>
+<li><code>\pagestyle{[plain|headings|empty]}</code> for choice of header</li>
+<li><code>\include{file}</code> to split input file. content will be on new page</li>
+<li>only check syntax: <code>\usepackage{syntonly} \syntaxonly</code></li>
+</ul>
+<p><strong>Packages:</strong></p>
+<ul>
+<li>primary source for info: Frank Mittelbach:The Latex Companion</li>
+<li><code>texdoc &lt;packagename&gt;</code> command for looking at package documentation</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.tex</code></td>
+<td>Tex Input File</td>
+</tr>
+<tr>
+<td><code>.sty</code></td>
+<td>Tex Macro Package: load this with <code>\usepackage</code></td>
+</tr>
+<tr>
+<td><code>.dtx</code></td>
+<td>documented TeX: main distribution format for latex style files</td>
+</tr>
+<tr>
+<td><code>.ins</code></td>
+<td>installer for files contained in matching .dtx. run latex on the .ins to unpack the .dtx</td>
+</tr>
+<tr>
+<td><code>.cls</code></td>
+<td>class file: defines what the document looks like. selected with <code>\documentclass</code></td>
+</tr>
+<tr>
+<td><code>.fd</code></td>
+<td>font description: telling latex about new fonts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typesetting">Typesetting</h3>
+<ul>
+<li>
+<p><code>\\</code> or <code>\newline</code> starts new line without starting new paragraph</p>
+</li>
+<li>
+<p><code>\\*</code> additionally prohibits pagebreak</p>
+</li>
+<li>
+<p><code>\newpage</code> starts a new pageA</p>
+</li>
+<li>
+<p><code>\linebreak[n],\nolinebreak[n],\pagebreak[n],\nopagebreak[n]</code> suggests places</p>
+</li>
+<li>
+<p><code>n</code> at a value below 4 leaves Latex the option to ignore the command</p>
+</li>
+<li>
+<p><code>\newline, \newpage</code> makes a new page to really start a new line/page</p>
+</li>
+<li>
+<p><code>\sloppy</code> lowers Latex linebreak requirements, <code>\fussy</code> raises it again</p>
+</li>
+<li>
+<p><code>\hyphenation{FORTRAN Hy-phen-a-tion}</code> to make exceptions to hyphenation algo</p>
+</li>
+<li>
+<p>above: FORTRAN will not be hyphened, Hyphenation can be at all dashes</p>
+</li>
+<li>
+<p><code>\mbox{text}</code> keeps words together on one line, <code>\fbox{text}</code> draws additional visible box</p>
+</li>
+<li>
+<p>ready made strings: <code>\today, \latex, \tex</code></p>
+</li>
+<li>
+<p>dont use normal quotation marks: use backticks (one or two) to start and straight ticks to end</p>
+</li>
+<li>
+<p>dashes can be done with different length: 1 to 3</p>
+</li>
+<li>
+<p>start and end embedded math with <code>$</code></p>
+</li>
+<li>
+<p>different language: start environment <code>\begin{german} ... \end{german}</code>, also <code>\textgerman{germanword}</code></p>
+</li>
+<li>
+<p>package <code>polyglossia</code> for fonts and languages</p>
+</li>
+<li>
+<p>setting fonts: <code>\setmainfont{...}, \setsansfont{...}, \setmonofont{...}</code></p>
+</li>
+<li>
+<p>latex inserts more whitespace after end of sentence. can be disabled with <code>\frenchspacing</code></p>
+</li>
+<li>
+<p>backslash before space ensures space will not be enlarged, ~ does same and prohibits linebreak</p>
+</li>
+<li>
+<p>sectioning depends on document class, <code>\chapter</code> not always available</p>
+</li>
+<li>
+<p>normally <code>\section{}, \subsection{}, \paragraph{}, \subparagraph{}</code></p>
+</li>
+<li>
+<p><code>\part</code> does not affect numbering, <code>\appendix</code> takes no argument, <code>\tableofcontents</code> generates toc</p>
+</li>
+<li>
+<p><code>*</code> after sectioncommand: heading does not show up in toc and has no numbering</p>
+</li>
+<li>
+<p>short title for toc: <code>\section[short name]{long name}</code></p>
+</li>
+<li>
+<p><code>\title, \author, \date</code> define and <code>\maketitle</code> generates the title(page)</p>
+</li>
+<li>
+<p>bookclass: <code>\frontmatter</code> makes roman page numbering, followed by <code>\mainmatter, \appendix, \backmatter</code></p>
+</li>
+<li>
+<p>cross references: <code>\label{l}</code> for def (put label after!), <code>\ref{l}, \pageref{l}</code> for ref</p>
+</li>
+<li>
+<p><code>\footnote{text}</code> to be put after word or sentence, makes footnote on current page</p>
+</li>
+<li>
+<p>emphasizing: <code>\underline{text}</code> or even better: <code>\emph{text}</code>, different per context</p>
+</li>
+</ul>
+<p><strong>Environments</strong></p>
+<ul>
+<li><code>\begin{environment name} ... \end{environment name}</code></li>
+<li><code>itemize</code> for simple lists, <code> ennumerate</code> for numbered, <code>description</code> for descriptions</li>
+<li><code>\item</code> generates an item, sometimes optional params like <code>-</code> can be given</li>
+<li>other environments: <code>flushleft</code>, <code>flushright</code> and <code>center</code></li>
+<li><code>quote</code> for quotes, <code>quotation</code> for longer quotes (multiple paragraphs) and <code>verse</code> for poems</li>
+<li>there is also an <code>abstract</code> environment for scientific articles</li>
+<li><code>verbatim</code> environment: directly printed with all linebreaks, no latex processing</li>
+<li><code>verbatim</code> can be embedded with <code>\verb+text+</code> command where <code>+</code> can be any delimiter</li>
+<li><code>tabular</code> environment for tables (see 2.11 in the book)</li>
+<li>graphics with <code>\usepackage{graphicx}</code>, then <code>\includegraphics[key=value..]{file}</code></li>
+<li><code>figure</code> and <code>table</code> are floating body environments: support optional placement specifier param</li>
+<li>float placing permissions: some of the letters <code>h, p, t, b, !</code></li>
+<li><code>\caption[short]{long captiontext}</code> defines a caption for the float</li>
+<li>reference using <code>\label</code> which must come AFTER the <code>\caption</code> command</li>
+<li><code>\listoffigures</code> and <code>\listoftables</code> generate, analogous to ToC</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.texfaq.org/FAQ-texthings">What is TeX?</a></li>
+<li><a href="https://www.volkerschatz.com/tex/tpacks.html#kpathsea">TeX packages</a></li>
+<li><a href="https://mirror.foobar.to/CTAN/info/lshort/english/lshort.pdf">A not so short introduction to latex</a></li>
+<li><a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf">MathSymbols</a></li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/coding/bash/" title="Bash"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/tools/" title="Tools / Concepts"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

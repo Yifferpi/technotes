@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Encodings :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/misc/encodings/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -90,8 +89,8 @@
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
           <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
-          <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
-          <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
+          <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item parent"><a href="/misc/">Miscellaneous</a><ul>
+          <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item active"><a href="/misc/encodings/">Encodings</a></li>
           <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li>
           <li data-nav-id="/misc/vim/" title="Vim" class="dd-item"><a href="/misc/vim/">Vim</a></li></ul></li>
           <li data-nav-id="/security/" title="Security" class="dd-item"><a href="/security/">Security</a><ul>
@@ -119,28 +118,90 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/misc/"><span itemprop="name">Miscellaneous</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/misc/encodings/" aria-disabled="true"><span itemprop="name">Encodings</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#unicode">Unicode</a></li>
+    <li><a href="#utf-8">UTF-8</a></li>
+    <li><a href="#base64">Base64</a></li>
+    <li><a href="#fixed-vs-variable-byte-encodings">Fixed vs Variable Byte encodings</a></li>
+    <li><a href="#gamma-encoding">Gamma Encoding</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Encodings</h1>
+
+<h2 id="unicode">Unicode</h2>
+<p><a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> is a <strong>Standard</strong>, not an Encoding
+Standard for consistent encoding, representation and handling</p>
+<ul>
+<li>Maintained by Unicode Consortium</li>
+<li>consists of more than 140'000 graphic characters, 160 format characters</li>
+<li>covers more than 150 modern and historic scripts, multiple symbol sets and emojis</li>
+</ul>
+<h2 id="utf-8">UTF-8</h2>
+<p>UTF-8 is a variable-width character encoding. Defined by the Unicode standard.</p>
+<h2 id="base64">Base64</h2>
+<p><a href="https://en.wikipedia.org/wiki/Base64">Base64</a> is a group of binary-to-text
+encoding schemes. Represents binary data in ASCII string format</p>
+<h2 id="fixed-vs-variable-byte-encodings">Fixed vs Variable Byte encodings</h2>
+<p><strong>fixed</strong>
+4 bytes | 4 bytes | 4 bytes | 4 bytes | 4 bytes
+<strong>variable</strong>
+2 bytes | 2 bytes | 3 bytes | 1 bytes | 4 bytes
+works with prefix codes, declaring the length</p>
+<p>continuation bit 0, end bit 1. packets of size n, starting with
+either continuation or end bit. either it is the last packet or not.</p>
+<p>100000110010101
+0'0000001 0'0000011 1'0010101</p>
+<p>100101100110011100100100000
+0'0100101 0'1001100 0'1110010 1'0100000</p>
+<p>111001001011001110
+0'0001110 0'0100101 1'1001110</p>
+<h2 id="gamma-encoding">Gamma Encoding</h2>
+<p><strong>Unary code</strong>
+12 &ndash;&gt; 1111'1111'11110 (zero to terminate)
+<strong>Gamma code</strong></p>
+<ol>
+<li>convert to zero</li>
+<li>get rid of leading 1</li>
+<li>determine length</li>
+<li>write length in unary code</li>
+<li>concat &lsquo;length in unary code&rsquo; with &lsquo;binary without leading 1&rsquo;</li>
+</ol>
+<p>properties of gamma encoding:</p>
+<ul>
+<li>variable length encoding</li>
+<li>prefix encoding</li>
+<li>universal encoding
+some good propery in light of shannon entropy</li>
+</ul>
+<p>decimal &ndash;&gt; binary &ndash;&gt; no leading 1 &ndash;&gt; unary of length
+111222 &ndash;&gt; 11011001001110110 &ndash;&gt; 1011'0010'0111'0110 &ndash;&gt; 1111'1111'1111'1111'0
+&ndash;&gt; 1111'1111'1111'1111'0
+89603 &ndash;&gt; 10101111000000011 &ndash;&gt; 0101'1110'0000'0011 &ndash;&gt; 1111'1111'1111'1111'0
+&ndash;&gt; 1111'1111'1111'1111'0
+93710 &ndash;&gt; 10110111000001110 &ndash;&gt; 0110'1110'0000'1110 &ndash;&gt; 1111'1111'1111'1111'0
+&ndash;&gt; 1111'1111'1111'1111'0</p>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/misc/" title="Miscellaneous"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/misc/nginx/" title="nginx configuration"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

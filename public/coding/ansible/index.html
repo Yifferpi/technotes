@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Ansible :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/coding/ansible/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -79,8 +78,8 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item"><a href="/coding/">Coding / Languages</a><ul>
-          <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item active"><a href="/coding/ansible/">Ansible</a></li>
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
@@ -119,28 +118,94 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/coding/"><span itemprop="name">Coding / Languages</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/coding/ansible/" aria-disabled="true"><span itemprop="name">Ansible</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-concepts">basic concepts</a></li>
+    <li><a href="#inventory">Inventory</a></li>
+    <li><a href="#basic-command">Basic command</a></li>
+    <li><a href="#playbooks">Playbooks</a></li>
+    <li><a href="#roles">Roles</a></li>
+    <li><a href="#modules-in-ansiblebuiltin-collection">Modules in <code>ansible.builtin</code> collection</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Ansible</h1>
+
+<h1 id="ansible-notes">Ansible notes</h1>
+<h2 id="basic-concepts">basic concepts</h2>
+<ul>
+<li><em>Control Node</em> is any machine with Ansible installed</li>
+<li><em>Managed Node</em> is any machine controlled with Ansible</li>
+<li><em>Inventory</em> is a list of all managed nodes, with options for grouping</li>
+<li><em>Collection</em> distribution format for content, can include playbooks, roles,
+modules and plugins. Collections are installed through Ansible Galaxy</li>
+<li><em>Modules</em> are the units of code that ansible executes</li>
+<li><em>Tasks</em> are the unit of Actions in Ansible</li>
+<li><em>Playbook</em> is an ordered list of tasks</li>
+</ul>
+<h2 id="inventory">Inventory</h2>
+<p>Inventory is a grouped list of managed nodes / hosts,
+typically <code>ini</code> or <code>yaml</code> file. ini example:</p>
+<pre tabindex="0"><code>mail.example.com
+
+[webservers]
+foo.example.com
+bar.example.com
+
+[dbservers]
+one.example.com
+two.example.com
+three.example.com
+</code></pre><ul>
+<li>default path for inventory is <code>/etc/ansible/hosts</code></li>
+<li>alternative inventory file can be given with <code>-i</code> flag</li>
+</ul>
+<h2 id="basic-command">Basic command</h2>
+<p><code>ansible [pattern] -m [module] -a &quot;[module options]&quot;</code></p>
+<ul>
+<li>default module is the <code>command</code> module</li>
+<li>this is the ad-hoc way to issue commands (as opposed to playbooks)</li>
+</ul>
+<h2 id="playbooks">Playbooks</h2>
+<ul>
+<li>offer repeatable, reusable, simple configuration management</li>
+<li>expressed in <code>yaml</code> files</li>
+<li>playbook consists of multiple &lsquo;plays&rsquo;, each of which executes a series of tasks</li>
+<li>each task calls an ansible module</li>
+<li>playbook runs from top to bottom</li>
+<li>playbooks are run with <code>ansible-playbook</code> command</li>
+</ul>
+<h2 id="roles">Roles</h2>
+<h2 id="modules-in-ansiblebuiltin-collection">Modules in <code>ansible.builtin</code> collection</h2>
+<ul>
+<li><code>template</code></li>
+<li><code>copy</code> to copy files, and <code>fetch</code> to copy to local machine</li>
+<li><code>file</code> to manage or change owner and file permissions</li>
+<li><code>yum</code> or others to manage packages</li>
+<li><code>user</code> to manage users</li>
+<li><code>service</code> to manage state of services</li>
+<li><code>setup</code> module to gather facts about the systems</li>
+</ul>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/coding/" title="Coding / Languages"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/coding/python/" title="Python"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

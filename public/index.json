@@ -1,0 +1,170 @@
+[
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Coding / Languages",
+    "uri": "/coding/"
+  },
+  {
+    "content": "hello world\nTopics  Directory Structure tcpdump  ",
+    "description": "",
+    "tags": null,
+    "title": "Tools / Concepts",
+    "uri": "/tools/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Miscellaneous",
+    "uri": "/misc/"
+  },
+  {
+    "content": "Topics ",
+    "description": "",
+    "tags": null,
+    "title": "Security",
+    "uri": "/security/"
+  },
+  {
+    "content": "Ansible notes basic concepts  Control Node is any machine with Ansible installed Managed Node is any machine controlled with Ansible Inventory is a list of all managed nodes, with options for grouping Collection distribution format for content, can include playbooks, roles, modules and plugins. Collections are installed through Ansible Galaxy Modules are the units of code that ansible executes Tasks are the unit of Actions in Ansible Playbook is an ordered list of tasks  Inventory Inventory is a grouped list of managed nodes / hosts, typically ini or yaml file. ini example:\nmail.example.com [webservers] foo.example.com bar.example.com [dbservers] one.example.com two.example.com three.example.com  default path for inventory is /etc/ansible/hosts alternative inventory file can be given with -i flag  Basic command ansible [pattern] -m [module] -a \"[module options]\"\n default module is the command module this is the ad-hoc way to issue commands (as opposed to playbooks)  Playbooks  offer repeatable, reusable, simple configuration management expressed in yaml files playbook consists of multiple ‘plays’, each of which executes a series of tasks each task calls an ansible module playbook runs from top to bottom playbooks are run with ansible-playbook command  Roles Modules in ansible.builtin collection  template copy to copy files, and fetch to copy to local machine file to manage or change owner and file permissions yum or others to manage packages user to manage users service to manage state of services setup module to gather facts about the systems  ",
+    "description": "",
+    "tags": null,
+    "title": "Ansible",
+    "uri": "/coding/ansible/"
+  },
+  {
+    "content": "In this article, we list common attack paradigms / patterns, try to explain them, and potentially list examples.\n proxy attack: contact other host for faster computation of checksum in the context of time-based attestation downgrade attack: force a key exchange protocol to use weaker cryptographic primitives than either participant supports man-in-the-middle attack: pretend to both participants to be the other participant side-channel attacks: any attack based not on the protocol but on a concrete implementation, where information to reduce the keyspace is leaked over a so-called ‘side channel’  ",
+    "description": "",
+    "tags": null,
+    "title": "attack types / classes",
+    "uri": "/security/attack_types/"
+  },
+  {
+    "content": "Unicode Unicode is a Standard, not an Encoding Standard for consistent encoding, representation and handling\n Maintained by Unicode Consortium consists of more than 140'000 graphic characters, 160 format characters covers more than 150 modern and historic scripts, multiple symbol sets and emojis  UTF-8 UTF-8 is a variable-width character encoding. Defined by the Unicode standard.\nBase64 Base64 is a group of binary-to-text encoding schemes. Represents binary data in ASCII string format\nFixed vs Variable Byte encodings fixed 4 bytes | 4 bytes | 4 bytes | 4 bytes | 4 bytes variable 2 bytes | 2 bytes | 3 bytes | 1 bytes | 4 bytes works with prefix codes, declaring the length\ncontinuation bit 0, end bit 1. packets of size n, starting with either continuation or end bit. either it is the last packet or not.\n100000110010101 0'0000001 0'0000011 1'0010101\n100101100110011100100100000 0'0100101 0'1001100 0'1110010 1'0100000\n111001001011001110 0'0001110 0'0100101 1'1001110\nGamma Encoding Unary code 12 –\u003e 1111'1111'11110 (zero to terminate) Gamma code\n convert to zero get rid of leading 1 determine length write length in unary code concat ‘length in unary code’ with ‘binary without leading 1’  properties of gamma encoding:\n variable length encoding prefix encoding universal encoding some good propery in light of shannon entropy  decimal –\u003e binary –\u003e no leading 1 –\u003e unary of length 111222 –\u003e 11011001001110110 –\u003e 1011'0010'0111'0110 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0 89603 –\u003e 10101111000000011 –\u003e 0101'1110'0000'0011 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0 93710 –\u003e 10110111000001110 –\u003e 0110'1110'0000'1110 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0\n",
+    "description": "",
+    "tags": null,
+    "title": "Encodings",
+    "uri": "/misc/encodings/"
+  },
+  {
+    "content": "iptables  General concepts  nftables a good resource\n nft --handle list ruleset: lists rules including handles nft insert rule inet filter input ip saddr grader.dtf.netsec.inf.ethz.ch accept nft delete rule inet filter input handle 17 nft add rule inet filter input tcp dport 5432 drop  ufw Unix firewall\ngufw for graphical version\n",
+    "description": "",
+    "tags": null,
+    "title": "Firewall",
+    "uri": "/security/firewalls/"
+  },
+  {
+    "content": " find / -name \".git\" to find all gitrepos prettyprint the graph: git log --all --decorate --oneline --graph git branch \u003cbranchname\u003e to create new branch git branch -a to list all branches git checkout \u003cbranchname\u003e to checkout existing branch git branch -f \u003csource\u003e \u003ctarget\u003e to move a branch. You cannot be on target. forward port reachable from remote host: ssh -L localport:192.168.x.x:remoteport user@domain.tld  ",
+    "description": "",
+    "tags": null,
+    "title": "git",
+    "uri": "/tools/git/"
+  },
+  {
+    "content": "tcpdump Usage  tcpdump -i \u003cinterface\u003e three steps of verbosity: -v -vv -vvv finding ssh connections independent of port used: tcpdump 'tcp[(tcp[12]\u003e\u003e2):4] = 0x5353482D'  Resources A tcpdump Tutorial with Examples\nWireshark Wireshark is the GUI application and Tshark the command line version. Wireshard makes packets more readible but the filtering system is essentially the same.\nnmap Host discovery Ping Scan: nmap -sP 192.168.1.0/24\n in newer versions, this is called -sn can be prettified with -oG - (greppable output)  List Scan: nmap -sL 192.168.1.0/24 nmap -sP -PN -R --system-dns 192.168.2.0/24 | grep -i .wg\n-R: DNS resolution for all targets, not only responsive hosts\n -sP: see -sn -Pn: (No ping), skips discovery stage alltogether, -PN in older versions  nmap -sP -sn -oG - 192.168.2.0/24\n -sn: Ping Scan - disable port scan, -sP in older versions nmap scripting engine nmap commands nmap overview  netcat todo\nnetdiscover todo\nip Resource\nDNS  dig \u003cdomainname\u003e systemd-resolve --statistics and systemd-resolve --flush-cache  ",
+    "description": "",
+    "tags": null,
+    "title": "Networking tools",
+    "uri": "/tools/networking/"
+  },
+  {
+    "content": "NGINX configuration NGINX is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The NGINX alias directive defines a replacement for the specified location. For example, with the following configuration:\nlocation /app/ { alias /var/www/app/; } on request of /app/top.gif, the file /var/www/app/top.gif will be sent. But, if the location doesn’t ends with directory separator (i.e. /):\nlocation /app { alias /var/www/app/; } on request of /app../secret/config.py, the file /var/www/secret/config.py will be sent. The incorrect configuration of the alias could allow an attacker to read file stored outside the target folder.\n",
+    "description": "",
+    "tags": null,
+    "title": "nginx configuration",
+    "uri": "/misc/nginx/"
+  },
+  {
+    "content": "Virtual Environments venv for python\nallows to install Python packages and a Python Interpreter in an isolated location from the rest of the system instead of installing globally\nReasons:\n preventing version conflict  Isolation could be separate PC, separate VM, a docker container or a venv\nHow to set up: python -m select a module from sys.path to run as a script\n for pythn3.4 and above, there is the baked-in package venv for versions below, use virtualenv (might need systemwide install first)  For python3.4 and above:\n python -m venv \u003cdirectory\u003e to create a virtual environment in  source \u003cdirectory\u003e/bin/activate to activate the environment deactivate to deactivate the environment if created with python -m venv, simply remove the directory to delete env  the environment is active on the entire system. internally, it works by modifying the head of the path variable.\nResource\nGeneral Resources Python Tutorials Advanced Python Webscraping\n",
+    "description": "",
+    "tags": null,
+    "title": "Python",
+    "uri": "/coding/python/"
+  },
+  {
+    "content": "Secure SHell SSH  forward port reachable from remote host: ssh -L localport:192.168.x.x:remoteport user@domain.tld -p flag to use a different port backticks to execute a command remotely!  ssh-copy-id user@host to copy own public key to host\nSSHD config file location: /etc/ssh/sshd_config\n set PubkeyAuthentification to yes for auth via public key set PasswordAuthentication to no to only allow public key systemctl restart sshd.service for changes to take effect  all of the above requires sudo\nReverse SSH tunnel ssh -p2000 -fNC -R 10011:localhost:22 pi@dyn.IP.adresse for reverse\nssh -p 10011 localhost on gateway\nProblems with cronjob at reboot.. here a solution: \n  ssh-agent bash to create a new agent\n  ssh-add ~/.ssh/id-rsa to add key and enter password\nthe above is valuable for cases like ansible, where otherwise the password would need entering many times\n  ssh -J host1 host2 to do a proxyjump. It is just like ssh into host1, then from there into host2. Not sure wheteher host1 or your own permissions count.\n  this can also be achieved with the keyword ProxyJump in the config file\n  ssh with command exec\nscp todo\n",
+    "description": "",
+    "tags": null,
+    "title": "ssh",
+    "uri": "/tools/ssh/"
+  },
+  {
+    "content": "This page is concerned with tools that help with management of a linux (ubuntu) system from the command line.\nnmcli  nmcli dev wifi to list available wifi nmcli dev wifi connect SSID --ask: connect to a new wifi nmcli con [up|down] SSID manage stored connection  nm-applet for i3bar utility\nbluetoothctl  bluetoothctl to enter interactive  in bluetooth, you pair once (exchange initial info) and then connect (two distinct steps!)\ntrusting a device means it will autoconnect to that device\nSystem control  pavucontrol: graphical sound manager  device listing  lsblk -p: list all storage devices lsblk -f: list only mounted lsusb: todo lspci: todo  xrandr todo\nAutostart  cron on reboot systemctl [enable|disable] postgres: add/remove from autostart works only if service is stopped  Mounting a device  sudo mount /dev/sda ~/mountdir sudo umount [device|dir]  systemctl  systemctl list-dependencies \u003cservice\u003e systemctl is-active \u003cservice\u003e  There are different types of systemd units.\nSome example commands:\n systemctl list-units --type=service --state=active systemctl status nginx.service systemd unit types systemd unit files  ",
+    "description": "",
+    "tags": null,
+    "title": "System Management",
+    "uri": "/tools/system_management/"
+  },
+  {
+    "content": " sha256sum file: compute checksum sha256 -c sha256sumfile: to check  Ghidra reverse engineering tool with great decompiler\n  start project, then open file in CodeBrowser\n  accept analyzing\n  Menu\u003eWindow gives a series of views, e.g. Defined Strings, Function Graph, and Function Call Graph\n  GDB   br *main+12: setting breakpoint\n  s: stepping one instr\n  finish: continue to return statement of current function\n  continue: continue regular execution until next break\n  info frame 0: print some info about frame 0\n  x/4w $sp or x/4w x7fffde60: print 4 words starting at stack pointer or given address\n  x/s $rdi: print value in rdi formated as a string\n  x/10i, x/xg, x/20xb\n  set $buffer=0x7ffffffddd0: set arbitrary variable, must not exist in HW\n  ni: show next instruction\n  vmmap: show all memory regions mapped to our virtual memory\n  gdb disables Address Space Layout Randomization (ASLR) by default.\n  turn on with aslr on before run\n  printing addresses with print main, subtracting labels allowed!\n  checksec: display which security measures are active in the binary\n  ",
+    "description": "",
+    "tags": null,
+    "title": "utility tools",
+    "uri": "/security/utility/"
+  },
+  {
+    "content": "#delete a word small w only considers letters big W also considers brackets c cuts and goes into insert mode afterwards d only cuts\ncaw, daw\tcut word including space after it ciw, diw\tcut word without space\nctrl-v\tenter Visual block mode shift-I\tgo insert mode, change entire block\nCommand :\u003e\u003e and :\u003c: shift two indents to the right / one to the left\nMacros  Recording: press q followed by key you want to store the makro in, then do your thing, in the end, press q in normal mode again. to execute a macro, press @ followed by the key the macro is stored in  how to execute a macro multiple times? how to look at the macro registry\n",
+    "description": "",
+    "tags": null,
+    "title": "Vim",
+    "uri": "/misc/vim/"
+  },
+  {
+    "content": "Wireguard Install with apt install wireguard\nAfter installation:\nsudo su cd /etc/wireguard umask 077 to protect wireguard directory appropriately\nCommand to generate key pair for server: wg genkey | tee server_private_key | wg pubkey \u003e server_public_key Repeat for each peer\nCreate a wg0.conf file in /etc/wireguard on the server side:\n[Interface] Address = 10.253.3.1/24 SaveConfig = true PrivateKey = \u003cinsert server_private_key\u003e ListenPort = 51900 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] PublicKey = \u003cinsert client_public_key\u003e AllowedIPs = 10.253.3.2/32  replace server_private_key and client_public_key possibly change eth0 to wlan0 don’t forget to forward ListenPort on the router  Enable port forwarding on vpn server In /etc/sysctl.conf, change/uncomment net.ipv4.ip_forward to 1 this allows the vpn server to act as a router\nStart up Wireguard systemctl enable wg-quick@wg0 chown -R root:root /etc/wireguard/ chmod -R og-rwx /etc/wireguard/*  systemctl enable adds wg-quick@wg0 to autostart the others again limit access to wireguard config directory then restart to get wireguard going on the vpn server  Set up client Create a wg0.conf file in /etc/wireguard on the client side:\n[Interface] Address = 10.253.3.2/32 PrivateKey = \u003cinsert client_private_key\u003e DNS = 1.1.1.1 [Peer] PublicKey = \u003cinsert server_public_key\u003e Endpoint = \u003cinsert vpn_server_address\u003e:51900 AllowedIPs = 0.0.0.0/0, ::/0  AllowedIPs = 0.0.0.0 means that only the client is accessible/visible through the vpn tunnel Address must be from the address range specified in the server config under [Peer] AllowedIPs to bring it up, type sudo wg-quick up wg0 to check if it works: sudo wg  Note  AllowedIPs on client side is like access control: only listed IPs are allowed incoming, rest is dropped on server: AllowedIPs is like routing: tells packets where to go  Resources more involved tutorial!  Simple Home Setup  Details on allowing certain ip ranges \n",
+    "description": "",
+    "tags": null,
+    "title": "VPN",
+    "uri": "/security/wireguard/"
+  },
+  {
+    "content": "Command line essentials Commandline  \u003e: pipe into file, overwriting \u003e\u003e: append to a file \u0026\u003e\u003e: append both stdout and stderr \u0026: run program in child process (e.g firefox \u0026) |: pipe to another application -: ?  source executes commands from a file in the current shell. can also be used to refresh environment variables, and that’s what it’s mostly used for Resource\nCommands Overview Navigate the Command line  ls cd cat less and more tree  Manipulate files  touch mv cp mkdir and rmdir  File permissions  chmod chown  Utility  head tail cut sort tr df and du tee  read from standard in, copy to file and stdout Store output of a command into outputfile and also continue processing: ... | tee \u003coutputfile\u003e | grep \u003cpattern\u003e   awk sed grep  cat file | grep -v ^#: no lines starting with # cat file | grep -v ^$: no empty lines    Bash Script Examples Asking user for confirmation while true; do # read is the most common way to ask for user input: read -p \"Do you wish to install this program?\" yn case $yn in [Yy]* ) echo \"Installing...\"; break;; [Nn]* ) exit;; * ) echo \"Please answer yes or no.\";; esac done while loop while true do read -p \"Really run script?\" answer case $answer in [yY]* ) echo \"Okay, running:\" break;; [nN]* ) exit;; * ) echo \"Dude, just enter Y or N please.\";; esac done echo \"Hello world\" ",
+    "description": "",
+    "tags": null,
+    "title": "Bash",
+    "uri": "/coding/bash/"
+  },
+  {
+    "content": "Personal Latex cheat sheet Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \\begin{comment} ... \\end{comment} Layout Structure\n every input file must start with \\documentclass{...} after that, commands that influence style of entire doc or load packages when setup work is done: \\begin{document} ... \\end{document anything after end will be ignored \\pagestyle{[plain|headings|empty]} for choice of header \\include{file} to split input file. content will be on new page only check syntax: \\usepackage{syntonly} \\syntaxonly  Packages:\n primary source for info: Frank Mittelbach:The Latex Companion texdoc \u003cpackagename\u003e command for looking at package documentation     Type Description     .tex Tex Input File   .sty Tex Macro Package: load this with \\usepackage   .dtx documented TeX: main distribution format for latex style files   .ins installer for files contained in matching .dtx. run latex on the .ins to unpack the .dtx   .cls class file: defines what the document looks like. selected with \\documentclass   .fd font description: telling latex about new fonts    Typesetting   \\\\ or \\newline starts new line without starting new paragraph\n  \\\\* additionally prohibits pagebreak\n  \\newpage starts a new pageA\n  \\linebreak[n],\\nolinebreak[n],\\pagebreak[n],\\nopagebreak[n] suggests places\n  n at a value below 4 leaves Latex the option to ignore the command\n  \\newline, \\newpage makes a new page to really start a new line/page\n  \\sloppy lowers Latex linebreak requirements, \\fussy raises it again\n  \\hyphenation{FORTRAN Hy-phen-a-tion} to make exceptions to hyphenation algo\n  above: FORTRAN will not be hyphened, Hyphenation can be at all dashes\n  \\mbox{text} keeps words together on one line, \\fbox{text} draws additional visible box\n  ready made strings: \\today, \\latex, \\tex\n  dont use normal quotation marks: use backticks (one or two) to start and straight ticks to end\n  dashes can be done with different length: 1 to 3\n  start and end embedded math with $\n  different language: start environment \\begin{german} ... \\end{german}, also \\textgerman{germanword}\n  package polyglossia for fonts and languages\n  setting fonts: \\setmainfont{...}, \\setsansfont{...}, \\setmonofont{...}\n  latex inserts more whitespace after end of sentence. can be disabled with \\frenchspacing\n  backslash before space ensures space will not be enlarged, ~ does same and prohibits linebreak\n  sectioning depends on document class, \\chapter not always available\n  normally \\section{}, \\subsection{}, \\paragraph{}, \\subparagraph{}\n  \\part does not affect numbering, \\appendix takes no argument, \\tableofcontents generates toc\n  * after sectioncommand: heading does not show up in toc and has no numbering\n  short title for toc: \\section[short name]{long name}\n  \\title, \\author, \\date define and \\maketitle generates the title(page)\n  bookclass: \\frontmatter makes roman page numbering, followed by \\mainmatter, \\appendix, \\backmatter\n  cross references: \\label{l} for def (put label after!), \\ref{l}, \\pageref{l} for ref\n  \\footnote{text} to be put after word or sentence, makes footnote on current page\n  emphasizing: \\underline{text} or even better: \\emph{text}, different per context\n  Environments\n \\begin{environment name} ... \\end{environment name} itemize for simple lists,  ennumerate for numbered, description for descriptions \\item generates an item, sometimes optional params like - can be given other environments: flushleft, flushright and center quote for quotes, quotation for longer quotes (multiple paragraphs) and verse for poems there is also an abstract environment for scientific articles verbatim environment: directly printed with all linebreaks, no latex processing verbatim can be embedded with \\verb+text+ command where + can be any delimiter tabular environment for tables (see 2.11 in the book) graphics with \\usepackage{graphicx}, then \\includegraphics[key=value..]{file} figure and table are floating body environments: support optional placement specifier param float placing permissions: some of the letters h, p, t, b, ! \\caption[short]{long captiontext} defines a caption for the float reference using \\label which must come AFTER the \\caption command \\listoffigures and \\listoftables generate, analogous to ToC  Resources  What is TeX? TeX packages A not so short introduction to latex MathSymbols  ",
+    "description": "",
+    "tags": null,
+    "title": "Latex",
+    "uri": "/coding/latex/"
+  },
+  {
+    "content": "Hi.\nMy name is Basil. I’m a computer science and cyber security student, interested in a wide range of topics from growing Bonsai to food hacking to tinkering with electronics.\n",
+    "description": "",
+    "tags": null,
+    "title": "About",
+    "uri": "/about/"
+  },
+  {
+    "content": "directory structure contains all sorts of configuration files\n  /etc/passwd: userlist\n  /etc/shadow: userlist including password hashes\n  /etc/group: groups and list of users that belong to it\n  /etc/environment: global environment variables\n  /etc/hosts: static lookup table for hostnames, superseded by DNS\n  /etc/hostname: static hostname used to init kernel hostname\n  /etc/machine-info: contains info like location, chassis, prettyname, etc. not present on every machine\n  /etc/apt: config of apt\n  /etc/apt/sources.list: file with apt repository sources\n  /etc/apt/sources.list.d: directory for more sources\n  /etc/systemd/multi-user.target.wants: autostart services\n  /etc/NetworkManager/system-connectons: wifi connections, SSIDs\n  Variable content that is changed by programs. Prominently:\n /var/log: place where many logfiles are  Interprocess Communication (IPC)  Good Resource sockets AF_NET, etch  General tty, etc\n",
+    "description": "",
+    "tags": null,
+    "title": "Linux Essentials",
+    "uri": "/tools/linux/"
+  },
+  {
+    "content": "Hi, and welcome on my website. Here, I present my notes on different tools and technologies or rant about things in blog posts.\n",
+    "description": "",
+    "tags": null,
+    "title": "Startpage",
+    "uri": "/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Categories",
+    "uri": "/categories/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Tags",
+    "uri": "/tags/"
+  }
+]

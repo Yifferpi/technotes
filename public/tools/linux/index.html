@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Linux Essentials :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/tools/linux/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -84,12 +83,12 @@
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
-          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item parent"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
-          <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
+          <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item active"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
           <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
           <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
           <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li>
@@ -119,28 +118,88 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/tools/"><span itemprop="name">Tools / Concepts</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tools/linux/" aria-disabled="true"><span itemprop="name">Linux Essentials</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#directory-structure">directory structure</a></li>
+    <li><a href="#interprocess-communication-ipc">Interprocess Communication (IPC)</a></li>
+    <li><a href="#general">General</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Linux Essentials</h1>
+
+<h2 id="directory-structure">directory structure</h2>
+<p>contains all sorts of configuration files</p>
+<ul>
+<li>
+<p><code>/etc/passwd</code>: userlist</p>
+</li>
+<li>
+<p><code>/etc/shadow</code>: userlist including password hashes</p>
+</li>
+<li>
+<p><code>/etc/group</code>: groups and list of users that belong to it</p>
+</li>
+<li>
+<p><code>/etc/environment</code>: global environment variables</p>
+</li>
+<li>
+<p><code>/etc/hosts</code>: static lookup table for hostnames, superseded by DNS</p>
+</li>
+<li>
+<p><code>/etc/hostname</code>: static hostname used to init kernel hostname</p>
+</li>
+<li>
+<p><code>/etc/machine-info</code>: contains info like location, chassis, prettyname, etc.
+not present on every machine</p>
+</li>
+<li>
+<p><code>/etc/apt</code>: config of apt</p>
+</li>
+<li>
+<p><code>/etc/apt/sources.list</code>: file with apt repository sources</p>
+</li>
+<li>
+<p><code>/etc/apt/sources.list.d</code>: directory for more sources</p>
+</li>
+<li>
+<p><code>/etc/systemd/multi-user.target.wants</code>: autostart services</p>
+</li>
+<li>
+<p><code>/etc/NetworkManager/system-connectons</code>: wifi connections, SSIDs</p>
+</li>
+</ul>
+<p>Variable content that is changed by programs. Prominently:</p>
+<ul>
+<li><code>/var/log</code>: place where many logfiles are</li>
+</ul>
+<h2 id="interprocess-communication-ipc">Interprocess Communication (IPC)</h2>
+<ul>
+<li>Good <a href="https://opensource.com/sites/default/files/gated-content/inter-process_communication_in_linux.pdf">Resource</a></li>
+<li><a href="https://stackoverflow.com/questions/51008595/what-is-the-purpose-of-sock-dgram-and-sock-stream-in-the-context-af-unix-sockets">sockets AF_NET, etch</a></li>
+</ul>
+<h2 id="general">General</h2>
+<p><a href="https://dev.to/napicella/linux-terminals-tty-pty-and-shell-192e">tty, etc</a></p>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/tools/system_management/" title="System Management"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/misc/" title="Miscellaneous"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

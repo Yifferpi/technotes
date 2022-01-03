@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>VPN :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/security/wireguard/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -94,11 +93,11 @@
           <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
           <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li>
           <li data-nav-id="/misc/vim/" title="Vim" class="dd-item"><a href="/misc/vim/">Vim</a></li></ul></li>
-          <li data-nav-id="/security/" title="Security" class="dd-item"><a href="/security/">Security</a><ul>
+          <li data-nav-id="/security/" title="Security" class="dd-item parent"><a href="/security/">Security</a><ul>
           <li data-nav-id="/security/attack_types/" title="attack types / classes" class="dd-item"><a href="/security/attack_types/">attack types / classes</a></li>
           <li data-nav-id="/security/firewalls/" title="Firewall" class="dd-item"><a href="/security/firewalls/">Firewall</a></li>
           <li data-nav-id="/security/utility/" title="utility tools" class="dd-item"><a href="/security/utility/">utility tools</a></li>
-          <li data-nav-id="/security/wireguard/" title="VPN" class="dd-item"><a href="/security/wireguard/">VPN</a></li></ul></li>
+          <li data-nav-id="/security/wireguard/" title="VPN" class="dd-item active"><a href="/security/wireguard/">VPN</a></li></ul></li>
           <li data-nav-id="/about/" title="About" class="dd-item"><a href="/about/">About</a><ul></ul></li>
         </ul>
         <div id="footer">
@@ -119,28 +118,114 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/security/"><span itemprop="name">Security</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/security/wireguard/" aria-disabled="true"><span itemprop="name">VPN</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#wireguard">Wireguard</a>
+      <ul>
+        <li><a href="#enable-port-forwarding-on-vpn-server">Enable port forwarding on vpn server</a></li>
+        <li><a href="#start-up-wireguard">Start up Wireguard</a></li>
+        <li><a href="#set-up-client">Set up client</a></li>
+        <li><a href="#note">Note</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>VPN</h1>
+
+<h2 id="wireguard">Wireguard</h2>
+<p>Install with <code>apt install wireguard</code></p>
+<p>After installation:</p>
+<pre tabindex="0"><code>sudo su
+cd /etc/wireguard
+umask 077
+</code></pre><p>to protect wireguard directory appropriately</p>
+<p>Command to generate key pair for server:
+<code>wg genkey | tee server_private_key | wg pubkey &gt; server_public_key</code>
+Repeat for each peer</p>
+<p>Create a <code>wg0.conf</code> file in <code>/etc/wireguard</code> on the server side:</p>
+<pre tabindex="0"><code>[Interface]
+Address = 10.253.3.1/24
+SaveConfig = true
+PrivateKey = &lt;insert server_private_key&gt;
+ListenPort = 51900
+
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
+[Peer]
+PublicKey = &lt;insert client_public_key&gt;
+AllowedIPs = 10.253.3.2/32
+</code></pre><ul>
+<li>replace <code>server_private_key</code> and <code>client_public_key</code></li>
+<li>possibly change <code>eth0</code> to <code>wlan0</code></li>
+<li>don&rsquo;t forget to forward <code>ListenPort</code> on the router</li>
+</ul>
+<h3 id="enable-port-forwarding-on-vpn-server">Enable port forwarding on vpn server</h3>
+<p>In <code>/etc/sysctl.conf</code>, change/uncomment <code>net.ipv4.ip_forward</code> to <code>1</code>
+this allows the vpn server to act as a router</p>
+<h3 id="start-up-wireguard">Start up Wireguard</h3>
+<pre tabindex="0"><code>systemctl enable wg-quick@wg0
+chown -R root:root /etc/wireguard/
+chmod -R og-rwx /etc/wireguard/*
+</code></pre><ul>
+<li><code>systemctl enable</code> adds <code>wg-quick@wg0</code> to autostart</li>
+<li>the others again limit access to wireguard config directory</li>
+<li>then restart to get wireguard going on the vpn server</li>
+</ul>
+<h3 id="set-up-client">Set up client</h3>
+<p>Create a <code>wg0.conf</code> file in <code>/etc/wireguard</code> on the client side:</p>
+<pre tabindex="0"><code>[Interface]
+Address = 10.253.3.2/32
+PrivateKey = &lt;insert client_private_key&gt;
+DNS = 1.1.1.1
+
+[Peer]
+PublicKey = &lt;insert server_public_key&gt;
+Endpoint = &lt;insert vpn_server_address&gt;:51900
+AllowedIPs = 0.0.0.0/0, ::/0
+</code></pre><ul>
+<li><code>AllowedIPs = 0.0.0.0</code> means that only the client is accessible/visible
+through the vpn tunnel</li>
+<li><code>Address</code> must be from the address range specified in the server config
+under <code>[Peer] AllowedIPs</code></li>
+<li>to bring it up, type <code>sudo wg-quick up wg0</code></li>
+<li>to check if it works: <code>sudo wg</code></li>
+</ul>
+<h3 id="note">Note</h3>
+<ul>
+<li><code>AllowedIPs</code> on client side is like access control: only listed IPs are
+allowed incoming, rest is dropped</li>
+<li>on server: <code>AllowedIPs</code> is like routing: tells packets where to go</li>
+</ul>
+<h3 id="resources">Resources</h3>
+<p><a href="https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/">more involved tutorial!
+</a>
+<a href="https://engineerworkshop.com/blog/how-to-set-up-wireguard-on-a-raspberry-pi/">Simple Home Setup
+</a>
+<a href="https://www.flockport.com/guides/build-wireguard-networks">Details on allowing certain ip ranges
+</a></p>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/security/utility/" title="utility tools"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/about/" title="About"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

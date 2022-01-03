@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>ssh :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/tools/ssh/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -84,10 +83,10 @@
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
           <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
-          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item parent"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
-          <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
+          <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item active"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
           <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
           <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
@@ -119,28 +118,79 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/tools/"><span itemprop="name">Tools / Concepts</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tools/ssh/" aria-disabled="true"><span itemprop="name">ssh</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh">SSH</a></li>
+    <li><a href="#sshd">SSHD</a></li>
+    <li><a href="#scp">scp</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>ssh</h1>
+
+<h1 id="secure-shell">Secure SHell</h1>
+<h2 id="ssh">SSH</h2>
+<ul>
+<li>forward port reachable from remote host:
+<code>ssh -L localport:192.168.x.x:remoteport user@domain.tld</code></li>
+<li><code>-p</code> flag to use a different port</li>
+<li>backticks to execute a command remotely!</li>
+</ul>
+<p><code>ssh-copy-id user@host</code> to copy own public key to host</p>
+<h2 id="sshd">SSHD</h2>
+<p>config file location: <code>/etc/ssh/sshd_config</code></p>
+<ul>
+<li>set <code>PubkeyAuthentification</code> to <code>yes</code> for auth via public key</li>
+<li>set <code>PasswordAuthentication</code> to <code>no</code> to only allow public key</li>
+<li><code>systemctl restart sshd.service</code> for changes to take effect</li>
+</ul>
+<p><em>all of the above requires sudo</em></p>
+<p><a href="https://www.rustimation.eu/index.php/reverse-ssh-tunnel-schritt-fur-schritt/">Reverse SSH tunnel</a>
+<code>ssh -p2000 -fNC -R 10011:localhost:22 pi@dyn.IP.adresse</code> for reverse</p>
+<p><code>ssh -p 10011 localhost</code> on gateway</p>
+<p>Problems with cronjob at reboot.. here a solution:
+<a href="https://github.com/axthosarouris/reverse-ssh-tunnel"></a></p>
+<ul>
+<li>
+<p><code>ssh-agent bash</code> to create a new agent</p>
+</li>
+<li>
+<p><code>ssh-add ~/.ssh/id-rsa</code> to add key and enter password<br>
+the above is valuable for cases like ansible, where otherwise
+the password would need entering many times</p>
+</li>
+<li>
+<p><code>ssh -J host1 host2</code> to do a proxyjump. It is just like ssh into
+host1, then from there into host2. Not sure wheteher host1 or your
+own permissions count.</p>
+</li>
+<li>
+<p>this can also be achieved with the keyword <code>ProxyJump</code> in the config file</p>
+</li>
+</ul>
+<p><a href="https://blog.jbowen.dev/tips/ssh-tmux/">ssh with command exec</a></p>
+<h2 id="scp">scp</h2>
+<p>todo</p>
+
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/tools/networking/" title="Networking tools"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/tools/system_management/" title="System Management"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

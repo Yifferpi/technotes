@@ -6,11 +6,10 @@
     <meta name="generator" content="Hugo 0.92.0-DEV" />
     <meta name="generator" content="Relearn 2.9.2
 ">
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="" />
     <meta name="description" content="">
     
 
-    <title>Tags :: </title>
+    <title>Bash :: </title>
     <link href="/css/nucleus.css?1641239765" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1641239765" rel="stylesheet">
     <link href="/css/featherlight.min.css?1641239765" rel="stylesheet">
@@ -25,7 +24,7 @@
       }
     </style>
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/coding/bash/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -79,10 +78,10 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
           <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
           <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
-          <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
+          <li data-nav-id="/coding/bash/" title="Bash" class="dd-item active"><a href="/coding/bash/">Bash</a></li>
           <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
           <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
@@ -119,28 +118,128 @@
             <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/coding/"><span itemprop="name">Coding / Languages</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/coding/bash/" aria-disabled="true"><span itemprop="name">Bash</span></a></li>
             </ol>
           </div>
             <div class="progress">
               <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#commandline">Commandline</a></li>
+  </ul>
 
+  <ul>
+    <li><a href="#navigate-the-command-line">Navigate the Command line</a></li>
+    <li><a href="#manipulate-files">Manipulate files</a></li>
+    <li><a href="#file-permissions">File permissions</a></li>
+    <li><a href="#utility">Utility</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#asking-user-for-confirmation">Asking user for confirmation</a></li>
+    <li><a href="#while-loop">while loop</a></li>
+  </ul>
+</nav>
               </div>
             </div>
         </div>
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>Tags</h1>
-          <ul>
-          </ul>
-          <footer class=" footline">
+          <h1>Bash</h1>
+
+<h1 id="command-line-essentials">Command line essentials</h1>
+<h2 id="commandline">Commandline</h2>
+<ul>
+<li><code>&gt;</code>: pipe into file, overwriting</li>
+<li><code>&gt;&gt;</code>: append to a file</li>
+<li><code>&amp;&gt;&gt;</code>: append both <code>stdout</code> and <code>stderr</code></li>
+<li><code>&amp;</code>: run program in child process (e.g <code>firefox &amp;</code>)</li>
+<li><code>|</code>: pipe to another application</li>
+<li><code>-</code>: ?</li>
+</ul>
+<p><code>source</code> executes commands from a file in the current shell.
+can also be used to refresh environment variables, and that&rsquo;s what it&rsquo;s
+mostly used for
+<a href="https://linuxhandbook.com/source-command/">Resource</a></p>
+<h1 id="commands-overview">Commands Overview</h1>
+<h2 id="navigate-the-command-line">Navigate the Command line</h2>
+<ul>
+<li><a href=""><code>ls</code></a></li>
+<li><a href=""><code>cd</code></a></li>
+<li><a href=""><code>cat</code></a></li>
+<li><a href=""><code>less</code> and <code>more</code></a></li>
+<li><a href=""><code>tree</code></a></li>
+</ul>
+<h2 id="manipulate-files">Manipulate files</h2>
+<ul>
+<li><a href=""><code>touch</code></a></li>
+<li><a href=""><code>mv</code></a></li>
+<li><a href=""><code>cp</code></a></li>
+<li><a href=""><code>mkdir</code> and <code>rmdir</code></a></li>
+</ul>
+<h2 id="file-permissions">File permissions</h2>
+<ul>
+<li><a href=""><code>chmod</code></a></li>
+<li><a href=""><code>chown</code></a></li>
+</ul>
+<h2 id="utility">Utility</h2>
+<ul>
+<li><a href=""><code>head</code></a></li>
+<li><a href=""><code>tail</code></a></li>
+<li><a href=""><code>cut</code></a></li>
+<li><a href=""><code>sort</code></a></li>
+<li><a href=""><code>tr</code></a></li>
+<li><a href=""><code>df</code> and <code>du</code></a></li>
+<li><code>tee</code>
+<ul>
+<li>read from standard in, copy to file and stdout</li>
+<li>Store output of a command into outputfile and also continue processing:
+<code>... | tee &lt;outputfile&gt; | grep &lt;pattern&gt;</code></li>
+</ul>
+</li>
+<li><a href=""><code>awk</code></a></li>
+<li><a href=""><code>sed</code></a></li>
+<li><code>grep</code>
+<ul>
+<li><code>cat file | grep -v ^#</code>: no lines starting with <code>#</code></li>
+<li><code>cat file | grep -v ^$</code>: no empty lines</li>
+</ul>
+</li>
+</ul>
+<h1 id="bash-script-examples">Bash Script Examples</h1>
+<h2 id="asking-user-for-confirmation">Asking user for confirmation</h2>
+<pre tabindex="0"><code>while true; do
+    # read is the most common way to ask for user input:
+    read -p &quot;Do you wish to install this program?&quot; yn
+    case $yn in
+        [Yy]* ) echo &quot;Installing...&quot;; break;;
+        [Nn]* ) exit;;
+        * ) echo &quot;Please answer yes or no.&quot;;;
+    esac
+done
+</code></pre><h2 id="while-loop">while loop</h2>
+<pre tabindex="0"><code>while true
+do
+    read -p &quot;Really run script?&quot; answer
+    case $answer in
+        [yY]* ) echo &quot;Okay, running:&quot;
+                break;;
+        [nN]* ) exit;;
+        * )     echo &quot;Dude, just enter Y or N please.&quot;;;
+    esac
+done
+echo &quot;Hello world&quot;
+</code></pre>
+          <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/about/" title="About"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/coding/python/" title="Python"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/coding/latex/" title="Latex"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
