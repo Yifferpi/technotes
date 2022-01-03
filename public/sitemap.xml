@@ -1,82 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/coding/</loc>
+    <loc>https://yifferpi.ch/coding/</loc>
     <lastmod>2021-12-29T21:41:06+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/tools/</loc>
+    <loc>https://yifferpi.ch/tools/</loc>
     <lastmod>2021-12-28T10:06:13+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/misc/</loc>
+    <loc>https://yifferpi.ch/misc/</loc>
   </url>
   <url>
-    <loc>https://example.com/security/</loc>
+    <loc>https://yifferpi.ch/security/</loc>
   </url>
   <url>
-    <loc>https://example.com/coding/ansible/</loc>
+    <loc>https://yifferpi.ch/coding/ansible/</loc>
   </url>
   <url>
-    <loc>https://example.com/security/attack_types/</loc>
+    <loc>https://yifferpi.ch/security/attack_types/</loc>
   </url>
   <url>
-    <loc>https://example.com/misc/encodings/</loc>
+    <loc>https://yifferpi.ch/misc/encodings/</loc>
   </url>
   <url>
-    <loc>https://example.com/security/firewalls/</loc>
+    <loc>https://yifferpi.ch/security/firewalls/</loc>
   </url>
   <url>
-    <loc>https://example.com/tools/git/</loc>
+    <loc>https://yifferpi.ch/tools/git/</loc>
   </url>
   <url>
-    <loc>https://example.com/tools/networking/</loc>
+    <loc>https://yifferpi.ch/tools/networking/</loc>
   </url>
   <url>
-    <loc>https://example.com/misc/nginx/</loc>
+    <loc>https://yifferpi.ch/misc/nginx/</loc>
   </url>
   <url>
-    <loc>https://example.com/coding/python/</loc>
+    <loc>https://yifferpi.ch/coding/python/</loc>
   </url>
   <url>
-    <loc>https://example.com/tools/ssh/</loc>
+    <loc>https://yifferpi.ch/tools/ssh/</loc>
   </url>
   <url>
-    <loc>https://example.com/tools/system_management/</loc>
+    <loc>https://yifferpi.ch/tools/system_management/</loc>
   </url>
   <url>
-    <loc>https://example.com/security/utility/</loc>
+    <loc>https://yifferpi.ch/security/utility/</loc>
   </url>
   <url>
-    <loc>https://example.com/misc/vim/</loc>
+    <loc>https://yifferpi.ch/misc/vim/</loc>
   </url>
   <url>
-    <loc>https://example.com/security/wireguard/</loc>
+    <loc>https://yifferpi.ch/security/wireguard/</loc>
   </url>
   <url>
-    <loc>https://example.com/coding/bash/</loc>
+    <loc>https://yifferpi.ch/coding/bash/</loc>
     <lastmod>2021-12-29T21:41:06+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/coding/latex/</loc>
-    <lastmod>2021-12-29T21:29:10+01:00</lastmod>
-  </url>
-  <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://yifferpi.ch/about/</loc>
     <lastmod>2021-12-28T11:24:53+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/tools/linux/</loc>
+    <loc>https://yifferpi.ch/tools/linux/</loc>
     <lastmod>2021-12-28T10:06:13+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://yifferpi.ch/</loc>
     <lastmod>2021-12-28T10:06:13+01:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://yifferpi.ch/categories/</loc>
   </url>
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://yifferpi.ch/coding/latex/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/writing/</loc>
   </url>
 </urlset>

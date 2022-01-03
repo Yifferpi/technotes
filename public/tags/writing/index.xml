@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>writing on </title>
+    <link>https://yifferpi.ch/tags/writing/</link>
+    <description>Recent content in writing on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://yifferpi.ch/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Latex</title>
+      <link>https://yifferpi.ch/coding/latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/coding/latex/</guid>
+      <description>Personal Latex cheat sheet Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
+Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \begin{comment} .</description>
+    </item>
+  </channel>
+</rss>

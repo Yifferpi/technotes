@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Startpage on </title>
-    <link>https://example.com/</link>
+    <link>https://yifferpi.ch/</link>
     <description>Recent content in Startpage on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Dec 2021 10:06:13 +0100</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Dec 2021 10:06:13 +0100</lastBuildDate><atom:link href="https://yifferpi.ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Coding / Languages</title>
-      <link>https://example.com/coding/</link>
+      <link>https://yifferpi.ch/coding/</link>
       <pubDate>Wed, 29 Dec 2021 21:41:06 +0100</pubDate>
-      <guid>https://example.com/coding/</guid>
+      <guid>https://yifferpi.ch/coding/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools / Concepts</title>
-      <link>https://example.com/tools/</link>
+      <link>https://yifferpi.ch/tools/</link>
       <pubDate>Tue, 28 Dec 2021 10:06:13 +0100</pubDate>
-      <guid>https://example.com/tools/</guid>
+      <guid>https://yifferpi.ch/tools/</guid>
       <description>hello world
 Topics  Directory Structure tcpdump  </description>
     </item>
     <item>
       <title>Miscellaneous</title>
-      <link>https://example.com/misc/</link>
+      <link>https://yifferpi.ch/misc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/misc/</guid>
+      <guid>https://yifferpi.ch/misc/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>https://example.com/security/</link>
+      <link>https://yifferpi.ch/security/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/security/</guid>
+      <guid>https://yifferpi.ch/security/</guid>
       <description>Topics </description>
     </item>
     <item>
       <title>About</title>
-      <link>https://example.com/about/</link>
+      <link>https://yifferpi.ch/about/</link>
       <pubDate>Tue, 28 Dec 2021 11:24:53 +0100</pubDate>
-      <guid>https://example.com/about/</guid>
+      <guid>https://yifferpi.ch/about/</guid>
       <description>Hi.
 My name is Basil. I&amp;rsquo;m a computer science and cyber security student, interested in a wide range of topics from growing Bonsai to food hacking to tinkering with electronics.</description>
     </item>

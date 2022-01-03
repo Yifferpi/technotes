@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coding / Languages on </title>
-    <link>https://example.com/coding/</link>
+    <link>https://yifferpi.ch/coding/</link>
     <description>Recent content in Coding / Languages on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Dec 2021 21:41:06 +0100</lastBuildDate><atom:link href="https://example.com/coding/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Dec 2021 21:41:06 +0100</lastBuildDate><atom:link href="https://yifferpi.ch/coding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible</title>
-      <link>https://example.com/coding/ansible/</link>
+      <link>https://yifferpi.ch/coding/ansible/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/coding/ansible/</guid>
+      <guid>https://yifferpi.ch/coding/ansible/</guid>
       <description>Ansible notes basic concepts  Control Node is any machine with Ansible installed Managed Node is any machine controlled with Ansible Inventory is a list of all managed nodes, with options for grouping Collection distribution format for content, can include playbooks, roles, modules and plugins. Collections are installed through Ansible Galaxy Modules are the units of code that ansible executes Tasks are the unit of Actions in Ansible Playbook is an ordered list of tasks  Inventory Inventory is a grouped list of managed nodes / hosts, typically ini or yaml file.</description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://example.com/coding/python/</link>
+      <link>https://yifferpi.ch/coding/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/coding/python/</guid>
+      <guid>https://yifferpi.ch/coding/python/</guid>
       <description>Virtual Environments venv for python
 allows to install Python packages and a Python Interpreter in an isolated location from the rest of the system instead of installing globally
 Reasons:
@@ -28,18 +28,19 @@ How to set up: python -m select a module from sys.path to run as a script
     </item>
     <item>
       <title>Bash</title>
-      <link>https://example.com/coding/bash/</link>
+      <link>https://yifferpi.ch/coding/bash/</link>
       <pubDate>Wed, 29 Dec 2021 21:41:06 +0100</pubDate>
-      <guid>https://example.com/coding/bash/</guid>
+      <guid>https://yifferpi.ch/coding/bash/</guid>
       <description>Command line essentials Commandline  &amp;gt;: pipe into file, overwriting &amp;gt;&amp;gt;: append to a file &amp;amp;&amp;gt;&amp;gt;: append both stdout and stderr &amp;amp;: run program in child process (e.g firefox &amp;amp;) |: pipe to another application -: ?  source executes commands from a file in the current shell. can also be used to refresh environment variables, and that&amp;rsquo;s what it&amp;rsquo;s mostly used for Resource
 Commands Overview Navigate the Command line  ls cd cat less and more tree  Manipulate files  touch mv cp mkdir and rmdir  File permissions  chmod chown  Utility  head tail cut sort tr df and du tee  read from standard in, copy to file and stdout Store output of a command into outputfile and also continue processing: .</description>
     </item>
     <item>
       <title>Latex</title>
-      <link>https://example.com/coding/latex/</link>
-      <pubDate>Wed, 29 Dec 2021 21:29:10 +0100</pubDate>
-      <guid>https://example.com/coding/latex/</guid>
-      <description>Personal Latex cheat sheet Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \begin{comment} .</description>
+      <link>https://yifferpi.ch/coding/latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/coding/latex/</guid>
+      <description>Personal Latex cheat sheet Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
+Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \begin{comment} .</description>
     </item>
   </channel>
 </rss>

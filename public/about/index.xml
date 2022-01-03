@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on </title>
-    <link>https://example.com/about/</link>
+    <link>https://yifferpi.ch/about/</link>
     <description>Recent content in About on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Dec 2021 11:24:53 +0100</lastBuildDate><atom:link href="https://example.com/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Dec 2021 11:24:53 +0100</lastBuildDate><atom:link href="https://yifferpi.ch/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
