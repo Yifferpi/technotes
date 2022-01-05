@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yifferpi.ch/coding/</loc>
-    <lastmod>2021-12-29T21:41:06+01:00</lastmod>
-  </url>
-  <url>
     <loc>https://yifferpi.ch/tools/</loc>
     <lastmod>2021-12-28T10:06:13+01:00</lastmod>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/coding/</loc>
   </url>
   <url>
     <loc>https://yifferpi.ch/misc/</loc>
@@ -19,6 +18,9 @@
   </url>
   <url>
     <loc>https://yifferpi.ch/security/attack_types/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/coding/bash/</loc>
   </url>
   <url>
     <loc>https://yifferpi.ch/misc/encodings/</loc>
@@ -52,10 +54,6 @@
   </url>
   <url>
     <loc>https://yifferpi.ch/security/wireguard/</loc>
-  </url>
-  <url>
-    <loc>https://yifferpi.ch/coding/bash/</loc>
-    <lastmod>2021-12-29T21:41:06+01:00</lastmod>
   </url>
   <url>
     <loc>https://yifferpi.ch/about/</loc>

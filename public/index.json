@@ -1,17 +1,17 @@
 [
   {
-    "content": "",
-    "description": "",
-    "tags": null,
-    "title": "Coding / Languages",
-    "uri": "/coding/"
-  },
-  {
     "content": "hello world\nTopics  Directory Structure tcpdump  ",
     "description": "",
     "tags": null,
     "title": "Tools / Concepts",
     "uri": "/tools/"
+  },
+  {
+    "content": "",
+    "description": "",
+    "tags": null,
+    "title": "Coding / Languages",
+    "uri": "/coding/"
   },
   {
     "content": "",
@@ -40,6 +40,13 @@
     "tags": null,
     "title": "attack types / classes",
     "uri": "/security/attack_types/"
+  },
+  {
+    "content": " Bash Essentials  special symbols hotkeys source vs. sh foreground and background jobs   Bash Script Examples  Command line essentials The following paragraphs explain shell tricks and concepts that are very helpful in everyday use. They are mostly not commands.\nspecial symbols  \u003e: pipe into file, overwriting \u003e\u003e: append to a file \u0026\u003e\u003e: append both stdout and stderr \u0026: run program in child process (e.g firefox \u0026) |: pipe to another application -: ?  hotkeys  Ctrl-l: clear the terminal (same as typing clear) Ctrl-a: Go to beginning of line Ctrl-e: Move cursor to end of line Ctrl-r: Reverse command search, find a command in recent history Ctrl-c: Terminate the current process Ctrl-d: End of file (EOF), on empty line, this closes the shell Ctrl-w: delete part of the word before the cursor (e.g. hello wor|ld becomes hello ld) Ctrl-u: delete part of the line before the cursor (e.g. hello w|orld becomes orld)  source versus sh source (or .) executes a script in the current shell. It is commonly used to reread configuration files (e.g. . ~/.bash_rc)\nIn contrast, bash \u003cscript\u003e (or ./script) spawns a new child process in which the script is executed.\nResource\nforeground and background jobs Most programs you start from a shell take over that shell. After the program is launched, all commands you type in the window go to the program rather than the underlying shell.\n Launching a program with \u0026 appended (e.g. firefox \u0026) starts the program in the background. Pressing Ctrl-z when the program is in foreground (i.e. occupying the shell) moves the program to the background and suspends it. Typing bg resumes the program in the background. Typing fg brings the program to the foreground again.  You can also have multiple programs run in the background.\n Current programs spawned from this shell can be listed with jobs. The first column of the listed jobs contains the job IDs. You can bring a specific program to foreground with fg \u003cjob_id\u003e  todo  stdin stdout and stderr special directories . and .. important environment variables config file concept of $PATH  Commands Overview  ls cd cat less and more tree touch mv cp mkdir and rmdir chmod chown head tail cut sort tr df and du tee  read from standard in, copy to file and stdout Store output of a command into outputfile and also continue processing: ... | tee \u003coutputfile\u003e | grep \u003cpattern\u003e   awk sed grep  cat file | grep -v ^#: no lines starting with # cat file | grep -v ^$: no empty lines    Bash script examples In the following paragraphs, some common and frequently used bash script patterns are collected.\nAsking user for confirmation while true; do # read is the most common way to ask for user input: read -p \"Do you wish to install this program?\" yn case $yn in [Yy]* ) echo \"Installing...\"; break;; [Nn]* ) exit;; * ) echo \"Please answer yes or no.\";; esac done while loop while true do read -p \"Really run script?\" answer case $answer in [yY]* ) echo \"Okay, running:\" break;; [nN]* ) exit;; * ) echo \"Dude, just enter Y or N please.\";; esac done echo \"Hello world\" find script directory DIR=$(dirname \"$0\") cd \"$DIR\" ",
+    "description": "",
+    "tags": null,
+    "title": "Bash",
+    "uri": "/coding/bash/"
   },
   {
     "content": "Unicode Unicode is a Standard, not an Encoding Standard for consistent encoding, representation and handling\n Maintained by Unicode Consortium consists of more than 140'000 graphic characters, 160 format characters covers more than 150 modern and historic scripts, multiple symbol sets and emojis  UTF-8 UTF-8 is a variable-width character encoding. Defined by the Unicode standard.\nBase64 Base64 is a group of binary-to-text encoding schemes. Represents binary data in ASCII string format\nFixed vs Variable Byte encodings fixed 4 bytes | 4 bytes | 4 bytes | 4 bytes | 4 bytes variable 2 bytes | 2 bytes | 3 bytes | 1 bytes | 4 bytes works with prefix codes, declaring the length\ncontinuation bit 0, end bit 1. packets of size n, starting with either continuation or end bit. either it is the last packet or not.\n100000110010101 0'0000001 0'0000011 1'0010101\n100101100110011100100100000 0'0100101 0'1001100 0'1110010 1'0100000\n111001001011001110 0'0001110 0'0100101 1'1001110\nGamma Encoding Unary code 12 –\u003e 1111'1111'11110 (zero to terminate) Gamma code\n convert to zero get rid of leading 1 determine length write length in unary code concat ‘length in unary code’ with ‘binary without leading 1’  properties of gamma encoding:\n variable length encoding prefix encoding universal encoding some good propery in light of shannon entropy  decimal –\u003e binary –\u003e no leading 1 –\u003e unary of length 111222 –\u003e 11011001001110110 –\u003e 1011'0010'0111'0110 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0 89603 –\u003e 10101111000000011 –\u003e 0101'1110'0000'0011 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0 93710 –\u003e 10110111000001110 –\u003e 0110'1110'0000'1110 –\u003e 1111'1111'1111'1111'0 –\u003e 1111'1111'1111'1111'0\n",
@@ -117,13 +124,6 @@
     "tags": null,
     "title": "VPN",
     "uri": "/security/wireguard/"
-  },
-  {
-    "content": "Command line essentials Commandline  \u003e: pipe into file, overwriting \u003e\u003e: append to a file \u0026\u003e\u003e: append both stdout and stderr \u0026: run program in child process (e.g firefox \u0026) |: pipe to another application -: ?  source executes commands from a file in the current shell. can also be used to refresh environment variables, and that’s what it’s mostly used for Resource\nCommands Overview Navigate the Command line  ls cd cat less and more tree  Manipulate files  touch mv cp mkdir and rmdir  File permissions  chmod chown  Utility  head tail cut sort tr df and du tee  read from standard in, copy to file and stdout Store output of a command into outputfile and also continue processing: ... | tee \u003coutputfile\u003e | grep \u003cpattern\u003e   awk sed grep  cat file | grep -v ^#: no lines starting with # cat file | grep -v ^$: no empty lines    Bash Script Examples Asking user for confirmation while true; do # read is the most common way to ask for user input: read -p \"Do you wish to install this program?\" yn case $yn in [Yy]* ) echo \"Installing...\"; break;; [Nn]* ) exit;; * ) echo \"Please answer yes or no.\";; esac done while loop while true do read -p \"Really run script?\" answer case $answer in [yY]* ) echo \"Okay, running:\" break;; [nN]* ) exit;; * ) echo \"Dude, just enter Y or N please.\";; esac done echo \"Hello world\" ",
-    "description": "",
-    "tags": null,
-    "title": "Bash",
-    "uri": "/coding/bash/"
   },
   {
     "content": "Hi.\nMy name is Basil. I’m a computer science and cyber security student, interested in a wide range of topics from growing Bonsai to food hacking to tinkering with electronics.\n",

@@ -1,11 +1,23 @@
----
-title: "Bash"
-date: 2021-12-29T21:41:06+01:00
-draft: false
----
++++
+chapter = false
+title = "Bash"
+weight = 5
++++
+
+- [Bash Essentials](#command-line-essentials)
+    - [special symbols](#special-symbols)
+    - [hotkeys](#hotkeys)
+    - [source vs. sh](#source-versus-sh)
+    - [foreground and background jobs](#foreground-and-background-jobs)
+- [Bash Script Examples](#bash-script-examples)
+
+
 # Command line essentials
 
-## Commandline
+The following paragraphs explain shell tricks and concepts that are very helpful
+in everyday use. They are mostly not commands.
+
+## special symbols
 - `>`: pipe into file, overwriting
 - `>>`: append to a file
 - `&>>`: append both `stdout` and `stderr`
@@ -13,33 +25,63 @@ draft: false
 - `|`: pipe to another application 
 - `-`: ?
 
-`source` executes commands from a file in the current shell.
-can also be used to refresh environment variables, and that's what it's
-mostly used for
+## hotkeys
+- `Ctrl-l`: clear the terminal (same as typing `clear`)
+- `Ctrl-a`: Go to beginning of line
+- `Ctrl-e`: Move cursor to end of line
+- `Ctrl-r`: Reverse command search, find a command in recent history
+- `Ctrl-c`: Terminate the current process
+- `Ctrl-d`: End of file (EOF), on empty line, this closes the shell
+- `Ctrl-w`: delete part of the word before the cursor 
+(e.g. `hello wor|ld` becomes `hello ld`)
+- `Ctrl-u`: delete part of the line before the cursor
+(e.g. `hello w|orld` becomes `orld`)
+
+## source versus sh
+`source` (or `.`) executes a script in the current shell. It is commonly used to 
+reread configuration files (e.g. `. ~/.bash_rc`)
+
+In contrast, `bash <script>` (or `./script`) spawns a new child process in which 
+the script is executed.
+
 [Resource](https://linuxhandbook.com/source-command/)
 
+## foreground and background jobs
+Most programs you start from a shell take over that shell. After the program is
+launched, all commands you type in the window go to the program rather than the
+underlying shell. 
+- Launching a program with `&` appended (e.g. `firefox &`) starts
+the program in the background.
+- Pressing `Ctrl-z` when the program is in foreground (i.e. occupying the shell)
+moves the program to the background and suspends it.
+- Typing `bg` resumes the program in the background.
+- Typing `fg` brings the program to the foreground again.
 
+You can also have multiple programs run in the background.
+- Current programs spawned from this shell can be listed with `jobs`.
+- The first column of the listed jobs contains the job IDs.
+- You can bring a specific program to foreground with `fg <job_id>`
 
-# Commands Overview
+## todo
+- stdin stdout and stderr
+- special directories `.` and `..`
+- important environment variables
+- config file
+- concept of $PATH
 
-## Navigate the Command line
+## Commands Overview
+
 - [`ls`]()
 - [`cd`]()
 - [`cat`]()
 - [`less` and `more`]()
 - [`tree`]()
-
-## Manipulate files
 - [`touch`]()
 - [`mv`]()
 - [`cp`]()
 - [`mkdir` and `rmdir`]()
-
-## File permissions
 - [`chmod`]()
 - [`chown`]()
-
-## Utility
 - [`head`]()
 - [`tail`]()
 - [`cut`]()
@@ -56,7 +98,11 @@ mostly used for
     - `cat file | grep -v ^#`: no lines starting with `#`
     - `cat file | grep -v ^$`: no empty lines
 
-# Bash Script Examples
+
+# Bash script examples
+In the following paragraphs, some common and frequently used bash script 
+patterns are collected.
+
 ## Asking user for confirmation
 ```bash
 while true; do
@@ -83,3 +129,9 @@ do
 done
 echo "Hello world"
 ```
+## find script directory
+```bash
+DIR=$(dirname "$0")
+cd "$DIR"
+```
+

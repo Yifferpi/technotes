@@ -11,16 +11,16 @@
     
 
     <title>Bash :: </title>
-    <link href="/css/nucleus.css?1641243524" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1641243524" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1641243524" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1641243524" rel="stylesheet">
-    <link href="/css/auto-complete.css?1641243524" rel="stylesheet">
-    <link href="/css/theme.css?1641243524" rel="stylesheet">
-    <link href="/css/theme-blue.css?1641243524" rel="stylesheet">
-    <link href="/css/variant.css?1641243524" rel="stylesheet">
-    <link href="/css/print.css?1641243524" rel="stylesheet" media="print">
-    <script src="/js/jquery.min.js?1641243524"></script>
+    <link href="/css/nucleus.css?1641422011" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1641422011" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1641422011" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1641422011" rel="stylesheet">
+    <link href="/css/auto-complete.css?1641422011" rel="stylesheet">
+    <link href="/css/theme.css?1641422011" rel="stylesheet">
+    <link href="/css/theme-blue.css?1641422011" rel="stylesheet">
+    <link href="/css/variant.css?1641422011" rel="stylesheet">
+    <link href="/css/print.css?1641422011" rel="stylesheet" media="print">
+    <script src="/js/jquery.min.js?1641422011"></script>
     <style>
       :root #header + #content > #left > #rlblock_left{
         display:none !important;
@@ -55,11 +55,11 @@
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/js/lunr.min.js?1641243524"></script>
-        <script src="/js/auto-complete.js?1641243524"></script>
+        <script src="/js/lunr.min.js?1641422011"></script>
+        <script src="/js/auto-complete.js?1641422011"></script>
         <!-- hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic: -->
         <!-- https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72 -->
-        <script src="/js/search.js?1641243524"></script>
+        <script src="/js/search.js?1641422011"></script>
       </div>
       <div id="homelinks">
         <ul>
@@ -70,17 +70,17 @@
       </div>
       <div class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
-          <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
-          <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
-          <li data-nav-id="/coding/bash/" title="Bash" class="dd-item active"><a href="/coding/bash/">Bash</a></li>
-          <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
           <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
           <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
           <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
           <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
           <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
           <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item parent"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
+          <li data-nav-id="/coding/bash/" title="Bash" class="dd-item active"><a href="/coding/bash/">Bash</a></li>
+          <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
+          <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
           <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
           <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
           <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li>
@@ -126,19 +126,18 @@
               <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#commandline">Commandline</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#navigate-the-command-line">Navigate the Command line</a></li>
-    <li><a href="#manipulate-files">Manipulate files</a></li>
-    <li><a href="#file-permissions">File permissions</a></li>
-    <li><a href="#utility">Utility</a></li>
+    <li><a href="#special-symbols">special symbols</a></li>
+    <li><a href="#hotkeys">hotkeys</a></li>
+    <li><a href="#source-versus-sh">source versus sh</a></li>
+    <li><a href="#foreground-and-background-jobs">foreground and background jobs</a></li>
+    <li><a href="#todo">todo</a></li>
+    <li><a href="#commands-overview">Commands Overview</a></li>
   </ul>
 
   <ul>
     <li><a href="#asking-user-for-confirmation">Asking user for confirmation</a></li>
     <li><a href="#while-loop">while loop</a></li>
+    <li><a href="#find-script-directory">find script directory</a></li>
   </ul>
 </nav>
               </div>
@@ -149,8 +148,21 @@
         <main id="body-inner">
           <h1>Bash</h1>
 
+<ul>
+<li><a href="#command-line-essentials">Bash Essentials</a>
+<ul>
+<li><a href="#special-symbols">special symbols</a></li>
+<li><a href="#hotkeys">hotkeys</a></li>
+<li><a href="#source-versus-sh">source vs. sh</a></li>
+<li><a href="#foreground-and-background-jobs">foreground and background jobs</a></li>
+</ul>
+</li>
+<li><a href="#bash-script-examples">Bash Script Examples</a></li>
+</ul>
 <h1 id="command-line-essentials">Command line essentials</h1>
-<h2 id="commandline">Commandline</h2>
+<p>The following paragraphs explain shell tricks and concepts that are very helpful
+in everyday use. They are mostly not commands.</p>
+<h2 id="special-symbols">special symbols</h2>
 <ul>
 <li><code>&gt;</code>: pipe into file, overwriting</li>
 <li><code>&gt;&gt;</code>: append to a file</li>
@@ -159,33 +171,64 @@
 <li><code>|</code>: pipe to another application</li>
 <li><code>-</code>: ?</li>
 </ul>
-<p><code>source</code> executes commands from a file in the current shell.
-can also be used to refresh environment variables, and that&rsquo;s what it&rsquo;s
-mostly used for
-<a href="https://linuxhandbook.com/source-command/">Resource</a></p>
-<h1 id="commands-overview">Commands Overview</h1>
-<h2 id="navigate-the-command-line">Navigate the Command line</h2>
+<h2 id="hotkeys">hotkeys</h2>
+<ul>
+<li><code>Ctrl-l</code>: clear the terminal (same as typing <code>clear</code>)</li>
+<li><code>Ctrl-a</code>: Go to beginning of line</li>
+<li><code>Ctrl-e</code>: Move cursor to end of line</li>
+<li><code>Ctrl-r</code>: Reverse command search, find a command in recent history</li>
+<li><code>Ctrl-c</code>: Terminate the current process</li>
+<li><code>Ctrl-d</code>: End of file (EOF), on empty line, this closes the shell</li>
+<li><code>Ctrl-w</code>: delete part of the word before the cursor
+(e.g. <code>hello wor|ld</code> becomes <code>hello ld</code>)</li>
+<li><code>Ctrl-u</code>: delete part of the line before the cursor
+(e.g. <code>hello w|orld</code> becomes <code>orld</code>)</li>
+</ul>
+<h2 id="source-versus-sh">source versus sh</h2>
+<p><code>source</code> (or <code>.</code>) executes a script in the current shell. It is commonly used to
+reread configuration files (e.g. <code>. ~/.bash_rc</code>)</p>
+<p>In contrast, <code>bash &lt;script&gt;</code> (or <code>./script</code>) spawns a new child process in which
+the script is executed.</p>
+<p><a href="https://linuxhandbook.com/source-command/">Resource</a></p>
+<h2 id="foreground-and-background-jobs">foreground and background jobs</h2>
+<p>Most programs you start from a shell take over that shell. After the program is
+launched, all commands you type in the window go to the program rather than the
+underlying shell.</p>
+<ul>
+<li>Launching a program with <code>&amp;</code> appended (e.g. <code>firefox &amp;</code>) starts
+the program in the background.</li>
+<li>Pressing <code>Ctrl-z</code> when the program is in foreground (i.e. occupying the shell)
+moves the program to the background and suspends it.</li>
+<li>Typing <code>bg</code> resumes the program in the background.</li>
+<li>Typing <code>fg</code> brings the program to the foreground again.</li>
+</ul>
+<p>You can also have multiple programs run in the background.</p>
+<ul>
+<li>Current programs spawned from this shell can be listed with <code>jobs</code>.</li>
+<li>The first column of the listed jobs contains the job IDs.</li>
+<li>You can bring a specific program to foreground with <code>fg &lt;job_id&gt;</code></li>
+</ul>
+<h2 id="todo">todo</h2>
+<ul>
+<li>stdin stdout and stderr</li>
+<li>special directories <code>.</code> and <code>..</code></li>
+<li>important environment variables</li>
+<li>config file</li>
+<li>concept of $PATH</li>
+</ul>
+<h2 id="commands-overview">Commands Overview</h2>
 <ul>
 <li><a href=""><code>ls</code></a></li>
 <li><a href=""><code>cd</code></a></li>
 <li><a href=""><code>cat</code></a></li>
 <li><a href=""><code>less</code> and <code>more</code></a></li>
 <li><a href=""><code>tree</code></a></li>
-</ul>
-<h2 id="manipulate-files">Manipulate files</h2>
-<ul>
 <li><a href=""><code>touch</code></a></li>
 <li><a href=""><code>mv</code></a></li>
 <li><a href=""><code>cp</code></a></li>
 <li><a href=""><code>mkdir</code> and <code>rmdir</code></a></li>
-</ul>
-<h2 id="file-permissions">File permissions</h2>
-<ul>
 <li><a href=""><code>chmod</code></a></li>
 <li><a href=""><code>chown</code></a></li>
-</ul>
-<h2 id="utility">Utility</h2>
-<ul>
 <li><a href=""><code>head</code></a></li>
 <li><a href=""><code>tail</code></a></li>
 <li><a href=""><code>cut</code></a></li>
@@ -208,7 +251,9 @@ mostly used for
 </ul>
 </li>
 </ul>
-<h1 id="bash-script-examples">Bash Script Examples</h1>
+<h1 id="bash-script-examples">Bash script examples</h1>
+<p>In the following paragraphs, some common and frequently used bash script
+patterns are collected.</p>
 <h2 id="asking-user-for-confirmation">Asking user for confirmation</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
     <span style="color:#75715e"># read is the most common way to ask for user input:</span>
@@ -231,31 +276,34 @@ mostly used for
     <span style="color:#66d9ef">esac</span>
 <span style="color:#66d9ef">done</span>
 echo <span style="color:#e6db74">&#34;Hello world&#34;</span>
+</code></pre></div><h2 id="find-script-directory">find script directory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DIR<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+cd <span style="color:#e6db74">&#34;</span>$DIR<span style="color:#e6db74">&#34;</span>
 </code></pre></div>
           <footer class="footline">
           </footer>
         </main>
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/coding/python/" title="Python"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/coding/latex/" title="Latex"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/coding/ansible/" title="Ansible"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/coding/python/" title="Python"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1641243524"></script>
-    <script src="/js/perfect-scrollbar.min.js?1641243524"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1641243524"></script>
-    <script src="/js/jquery.svg.pan.zoom.js?1641243524"></script>
-    <script src="/js/featherlight.min.js?1641243524"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1641243524"></script>
-    <script src="/js/mermaid.min.js?1641243524"></script>
+    <script src="/js/clipboard.min.js?1641422011"></script>
+    <script src="/js/perfect-scrollbar.min.js?1641422011"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1641422011"></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1641422011"></script>
+    <script src="/js/featherlight.min.js?1641422011"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1641422011"></script>
+    <script src="/js/mermaid.min.js?1641422011"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/js/relearn.js?1641243524"></script>
+    <script src="/js/relearn.js?1641422011"></script>
   </body>
 </html>
