@@ -35,3 +35,5 @@ Variable content that is changed by programs. Prominently:
 
 ## General
 [tty, etc](https://dev.to/napicella/linux-terminals-tty-pty-and-shell-192e)
+
+- `dmidecode` to dump system info, e.g. `dmidecode -t bios`
