@@ -4,20 +4,73 @@ date: 2022-01-12T15:03:55+01:00
 draft: False
 ---
 
+## Security properties
+There are different security concepts that are gathered under the umbrella
+term "security". In the following, we introduce some of these concepts and try
+to outline the difference and clarify for later discussions.
+
+
+- **Confidentiality**: keep unauthorized people from reading the data / keep 
+data secret. In some literature, there is further distinction between 
+secrecy (keep *own* data secret) and 
+confidentiality (keep *someone else's* data secret).
+
+- **Authentication**: knowing the source / sender of the data to be legitimate / the
+person they pretend to be (*data (origin) authentication*) 
+or verifying the identity and liveness
+of another protocol participant (*entity authentication*).
+
+- **Integrity**: knowing data has not been changed / tampered with by someone 
+unauthorized to do so.
+
+- **Privacy**: keep data *about a person* secret
+- **Anonymity**: keep *identity* of a protocol participant secret
+
+- **Authorization**: check whether someone is entitled to use a certain service / access
+certain data.
+
+- **Availability**: make sure communication cannot be prevented / protect against
+Denial of Service. 
+
+<!--TODO: maybe point some things out like differences, compare some properties -->
 
 ## Security primitives
+Security primitives is what we call basic building blocks for more complex
+cryptographic algorithms. We distunguish two types: symmetric and asymmetric.
+The simple but fundamental difference is the following:
+in symmetric procedures, there is **one** key only
+whereas in asymmetric procedures, there are two distinct keys where one is usually
+published and the other kept secret.
 
-|            | confidentiality       | authentication |
-| ---------- | ---------------       | -------------- |
-| symmetric  | Symmetric Encryption  | MAC            |
+| Property   | confidentiality       | authentication    |
+| ---------- | ---------------       | ----------------- |
+| symmetric  | Symmetric Encryption  | MAC               |
 | asymmetric | Public Key Encryption | Digital Signature | 
+
+Symmetric cryptography is much faster / less expensive than asymmetric cryptography.
+This is reflected in the key size that is commonly used: symmetric procedures like
+AES use key sizes of around 128 to 256 bit whereas asymmetric procedures like RSA
+use keys of 4096 bit.
+
+The question then is why do we need asymmetric crypto?
+
+As we mentioned, symmetric procedures have only one key. That same key is used
+for both, encryption and decryption. This implies that communicating parties must
+both be in possession of this key, i.e., must have a shared secret. This is 
+not always the case. This is where asymmetric crypto comes in handy.
+
+![Symmetric crypto](symmetric_crypto.png?width=18cm)
+
+In asymmetric procedures on the other hand, there are two keys a and b. If a
+message is encrypted using key a, then it can only be decrypted with key b and vice
+versa. By making key a your private key and publishing key b you allow people to
+encrypt messages that only you can read.
 
 ### Symmetric Encryption
 Symmetric encryption can be split into:
 - block ciphers (pseudo-random permutation)
 - stream ciphers (pseudo-random generator)
 
-![Symmetric crypto](symmetric_crypto.png?width=18cm)
 
 Stream Ciphers: generate pseudo-random key stream from a key k and an initialization
 vector IV. xor the keystream with the plaintext to obtain a cipher text.
@@ -105,29 +158,4 @@ D_i are data values. Verifier knows T_0 hash value.
 Difference between authentication with MAC vs. with Digital Signature:
 authentication with MAC enables *the receiver* to verify the origin. But the
 receiver cannot convince a third party. Problem: the one who can verify can also forge.
-
-## Security properties
-- Integrity: (Data integrity)
-Data has not been changed by someone unauthorized to do so. The point
-is not to prevent change but make it possible for the receiver to tell if it occured.
-
-- Confidentiality: data remains secret / unreadible to the adversary
-An unauthorized person cannot understand / read the data.
-Sometimes, we distinguish further:
-    - Secrecy: keep (own) data hidden from unintended receivers
-    - Confidentiality: keep *someone else's* data secret
-
-- Privacy: keep data *about a person* secret
-- Anonymity: keep *identity* of a protocol participant secret
-
-- Authentication: know the source of data to be legitimate. Identity of the sender
-is correct. Sender is indeed the person he/she pretends to be.
-Distinguish: 
-    - data (origin) authentication: ensure data originates from the claimed sender
-    - entity authentication: (identification): verify identity and liveness of another
-    protocol participant
-
-- Authorization: Check whether someone is entitled to use a certain service / access
-certain data.
-
 
