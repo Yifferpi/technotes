@@ -5,15 +5,8 @@
     <link>https://yifferpi.ch/security/</link>
     <description>Recent content in Security on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://yifferpi.ch/security/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>attack types / classes</title>
-      <link>https://yifferpi.ch/security/attack_types/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://yifferpi.ch/security/attack_types/</guid>
-      <description>In this article, we list common attack paradigms / patterns, try to explain them, and potentially list examples.
- proxy attack: contact other host for faster computation of checksum in the context of time-based attestation downgrade attack: force a key exchange protocol to use weaker cryptographic primitives than either participant supports man-in-the-middle attack: pretend to both participants to be the other participant side-channel attacks: any attack based not on the protocol but on a concrete implementation, where information to reduce the keyspace is leaked over a so-called &amp;lsquo;side channel&amp;rsquo;  </description>
-    </item>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jan 2022 15:03:55 +0100</lastBuildDate><atom:link href="https://yifferpi.ch/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Firewall</title>
       <link>https://yifferpi.ch/security/firewalls/</link>
@@ -22,6 +15,26 @@
       <description>iptables  General concepts  nftables a good resource
  nft --handle list ruleset: lists rules including handles nft insert rule inet filter input ip saddr grader.dtf.netsec.inf.ethz.ch accept nft delete rule inet filter input handle 17 nft add rule inet filter input tcp dport 5432 drop  ufw Unix firewall
 gufw for graphical version</description>
+    </item>
+    <item>
+      <title>Security Basics</title>
+      <link>https://yifferpi.ch/security/attack_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/security/attack_types/</guid>
+      <description>In this article, we list common attack paradigms / patterns, try to explain them, and potentially list examples.
+  proxy attack
+  downgrade attack
+  MitM attack
+  side channel attack
+  roll-back attack
+  DoS attack
+  relay / replay attack
+  supply chain attack
+  Slow Loris
+  POODLE
+  Heartbleed
+  Cuckoo attack (TPMs)
+  confused deputy attack (TEE: on ARM TrustZone)</description>
     </item>
     <item>
       <title>utility tools</title>
@@ -41,12 +54,19 @@ gufw for graphical version</description>
       <link>https://yifferpi.ch/security/wireguard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/security/wireguard/</guid>
-      <description>Wireguard Install with apt install wireguard
-After installation:
-sudo su cd /etc/wireguard umask 077 to protect wireguard directory appropriately
-Command to generate key pair for server: wg genkey | tee server_private_key | wg pubkey &amp;gt; server_public_key Repeat for each peer
-Create a wg0.conf file in /etc/wireguard on the server side:
-[Interface] Address = 10.253.3.1/24 SaveConfig = true PrivateKey = &amp;lt;insert server_private_key&amp;gt; ListenPort = 51900 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE [Peer] PublicKey = &amp;lt;insert client_public_key&amp;gt; AllowedIPs = 10.</description>
+      <description>VPN basics Virtual Private Networks (VPN) create secure channels between two endpoints over an untrusted network (e.g. the Internet). There is generally a setup phase, followed by the tunneling phase.
+Typical properties are authentication of the other endpoint (e.g. with MACs), confidentiality (usually based on symmetric crypto), and some sort of replay suppresion (i.e. sequence numbers).
+Common Setups:
+ site-to-site (e.g. regional office) host-to-site (e.g. home office) secure proxy (e.g. to circumvent censorship)  Great variety of implementations:</description>
+    </item>
+    <item>
+      <title>Cryptography</title>
+      <link>https://yifferpi.ch/security/cryptography/</link>
+      <pubDate>Wed, 12 Jan 2022 15:03:55 +0100</pubDate>
+      <guid>https://yifferpi.ch/security/cryptography/</guid>
+      <description>Security properties There are different security concepts that are gathered under the umbrella term &amp;ldquo;security&amp;rdquo;. In the following, we introduce some of these concepts and try to outline the difference and clarify for later discussions.
+  Confidentiality: keep unauthorized people from reading the data / keep data secret. In some literature, there is further distinction between secrecy (keep own data secret) and confidentiality (keep someone else&amp;rsquo;s data secret).
+  Authentication: knowing the source / sender of the data to be legitimate / the person they pretend to be (data (origin) authentication) or verifying the identity and liveness of another protocol participant (entity authentication).</description>
     </item>
   </channel>
 </rss>

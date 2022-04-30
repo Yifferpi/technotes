@@ -1,6 +1,6 @@
 +++
 chapter = true
 title = "Miscellaneous"
-weight = 2
+weight = 4
 +++
 

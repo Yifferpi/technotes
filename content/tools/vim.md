@@ -2,19 +2,27 @@
 chapter = false
 title = "Vim"
 weight = 5
+tags=["editor"]
 +++
 
-#delete a word
+On this page, a jumble of Vim shortcuts and functions are collected
+that I find very useful.
+
+## Delete text
+
+Some examples:
+- `ciw`: cut word (without following space), then go into insert mode
+- `daw`: cut word including following space
+- `dd`: delete entire line, remain in normal mode
+
+`c` goes into insert mode after deleting whereas `d` only cuts
+
 small w only considers letters
 big W also considers brackets
-c cuts and goes into insert mode afterwards
-d only cuts
 
-caw, daw	cut word including space after it
-ciw, diw	cut word without space
 
-ctrl-v		enter Visual block mode
-shift-I		go insert mode, change entire block
+- `ctrl-v` to enter Visual block mode
+- `shift-I` to go insert mode, change entire block
 
 Command `:>>` and `:<`: shift two indents to the right / one to the left
 

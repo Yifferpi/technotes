@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://yifferpi.ch/coding/</loc>
+  </url>
+  <url>
     <loc>https://yifferpi.ch/tools/</loc>
     <lastmod>2021-12-28T10:06:13+01:00</lastmod>
   </url>
   <url>
-    <loc>https://yifferpi.ch/coding/</loc>
+    <loc>https://yifferpi.ch/security/</loc>
+    <lastmod>2022-01-12T15:03:55+01:00</lastmod>
   </url>
   <url>
     <loc>https://yifferpi.ch/misc/</loc>
   </url>
   <url>
-    <loc>https://yifferpi.ch/security/</loc>
-  </url>
-  <url>
     <loc>https://yifferpi.ch/coding/ansible/</loc>
-  </url>
-  <url>
-    <loc>https://yifferpi.ch/security/attack_types/</loc>
   </url>
   <url>
     <loc>https://yifferpi.ch/coding/bash/</loc>
@@ -41,6 +39,9 @@
     <loc>https://yifferpi.ch/coding/python/</loc>
   </url>
   <url>
+    <loc>https://yifferpi.ch/security/attack_types/</loc>
+  </url>
+  <url>
     <loc>https://yifferpi.ch/tools/ssh/</loc>
   </url>
   <url>
@@ -50,14 +51,14 @@
     <loc>https://yifferpi.ch/security/utility/</loc>
   </url>
   <url>
-    <loc>https://yifferpi.ch/misc/vim/</loc>
+    <loc>https://yifferpi.ch/tools/vim/</loc>
   </url>
   <url>
     <loc>https://yifferpi.ch/security/wireguard/</loc>
   </url>
   <url>
-    <loc>https://yifferpi.ch/about/</loc>
-    <lastmod>2021-12-28T11:24:53+01:00</lastmod>
+    <loc>https://yifferpi.ch/security/cryptography/</loc>
+    <lastmod>2022-01-12T15:03:55+01:00</lastmod>
   </url>
   <url>
     <loc>https://yifferpi.ch/tools/linux/</loc>
@@ -71,10 +72,28 @@
     <loc>https://yifferpi.ch/categories/</loc>
   </url>
   <url>
+    <loc>https://yifferpi.ch/tags/editor/</loc>
+  </url>
+  <url>
     <loc>https://yifferpi.ch/coding/latex/</loc>
   </url>
   <url>
+    <loc>https://yifferpi.ch/tags/networking/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/programming/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/scripts/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/security/</loc>
+  </url>
+  <url>
     <loc>https://yifferpi.ch/tags/</loc>
+  </url>
+  <url>
+    <loc>https://yifferpi.ch/tags/tools/</loc>
   </url>
   <url>
     <loc>https://yifferpi.ch/tags/writing/</loc>

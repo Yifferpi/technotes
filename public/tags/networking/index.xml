@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on </title>
+    <link>https://yifferpi.ch/tags/networking/</link>
+    <description>Recent content in networking on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://yifferpi.ch/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ssh</title>
+      <link>https://yifferpi.ch/tools/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/tools/ssh/</guid>
+      <description>This page introduces diverse topics / functions related to SSH which go beyond the basics. They are mostly unused by beginners and casual SSH users but are very much appreciated once you know about them.
+NoteSSH is sometimes referred to as &amp;ldquo;poor man&amp;rsquo;s VPN&amp;rdquo;.
+  There are two distinct parts to SSH: the client and the server. A user&amp;rsquo;s client config can generally be found at ~/.ssh/  The ~/.</description>
+    </item>
+  </channel>
+</rss>

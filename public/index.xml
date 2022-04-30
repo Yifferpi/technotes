@@ -8,14 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Dec 2021 10:06:13 +0100</lastBuildDate><atom:link href="https://yifferpi.ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tools / Concepts</title>
-      <link>https://yifferpi.ch/tools/</link>
-      <pubDate>Tue, 28 Dec 2021 10:06:13 +0100</pubDate>
-      <guid>https://yifferpi.ch/tools/</guid>
-      <description>hello world
-Topics  Directory Structure tcpdump  </description>
-    </item>
-    <item>
       <title>Coding / Languages</title>
       <link>https://yifferpi.ch/coding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -23,26 +15,25 @@ Topics  Directory Structure tcpdump  </description>
       <description></description>
     </item>
     <item>
+      <title>Tools / Concepts</title>
+      <link>https://yifferpi.ch/tools/</link>
+      <pubDate>Tue, 28 Dec 2021 10:06:13 +0100</pubDate>
+      <guid>https://yifferpi.ch/tools/</guid>
+      <description>Topics git Networking tools ssh System Management Vim Linux Essentials  </description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://yifferpi.ch/security/</link>
+      <pubDate>Wed, 12 Jan 2022 15:03:55 +0100</pubDate>
+      <guid>https://yifferpi.ch/security/</guid>
+      <description>Topics </description>
+    </item>
+    <item>
       <title>Miscellaneous</title>
       <link>https://yifferpi.ch/misc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/misc/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://yifferpi.ch/security/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://yifferpi.ch/security/</guid>
-      <description>Topics </description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://yifferpi.ch/about/</link>
-      <pubDate>Tue, 28 Dec 2021 11:24:53 +0100</pubDate>
-      <guid>https://yifferpi.ch/about/</guid>
-      <description>Hi.
-My name is Basil. I&amp;rsquo;m a computer science and cyber security student, interested in a wide range of topics from growing Bonsai to food hacking to tinkering with electronics.</description>
     </item>
   </channel>
 </rss>

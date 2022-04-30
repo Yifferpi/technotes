@@ -11,7 +11,7 @@
       <link>https://yifferpi.ch/coding/latex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/coding/latex/</guid>
-      <description>Personal Latex cheat sheet Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
+      <description>Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
 Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \begin{comment} .</description>
     </item>
   </channel>

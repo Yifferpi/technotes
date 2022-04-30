@@ -18,7 +18,7 @@
       <link>https://yifferpi.ch/coding/bash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/coding/bash/</guid>
-      <description>Bash Essentials  special symbols hotkeys source vs. sh foreground and background jobs   Bash Script Examples  Command line essentials The following paragraphs explain shell tricks and concepts that are very helpful in everyday use. They are mostly not commands.
+      <description>Bash Essentials  special symbols hotkeys source vs. sh foreground and background jobs   Bash Script Examples  The following paragraphs explain shell tricks and concepts that are very helpful in everyday use. They are mostly not commands.
 special symbols  &amp;gt;: pipe into file, overwriting &amp;gt;&amp;gt;: append to a file &amp;amp;&amp;gt;&amp;gt;: append both stdout and stderr &amp;amp;: run program in child process (e.g firefox &amp;amp;) |: pipe to another application -: ?</description>
     </item>
     <item>
@@ -38,7 +38,7 @@ How to set up: python -m select a module from sys.path to run as a script
       <link>https://yifferpi.ch/coding/latex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/coding/latex/</guid>
-      <description>Personal Latex cheat sheet Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
+      <description>Mostly a summary of &amp;ldquo;Not so short Intro to LaTex&amp;rdquo;
 Commands and Rules  empty line between two lines defines a new paragraph single new line is treated as a regular single whitespace multiple whitespaces are treated as a regular single whitespace whitespaces after commands are ignored to get whitespace after command add empty params {} and a whitespace commands take required params in {} and optional params in []  Comments  comments are done with % % can also be used to split lines where no space is allowed for longer comment, use comment environment from verbatim package:  \begin{comment} .</description>
     </item>
   </channel>

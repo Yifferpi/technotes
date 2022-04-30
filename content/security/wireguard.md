@@ -2,7 +2,29 @@
 chapter = false
 title = "VPN"
 weight = 5
+tags = ["security"]
 +++
+
+## VPN basics
+Virtual Private Networks (VPN) create secure channels between two 
+endpoints over an untrusted network (e.g. the Internet).
+There is generally a setup phase, followed by the tunneling phase.
+
+Typical properties are authentication of the other endpoint
+(e.g. with MACs), confidentiality (usually based on symmetric crypto),
+and some sort of replay suppresion (i.e. sequence numbers).
+
+Common Setups:
+- site-to-site (e.g. regional office)
+- host-to-site (e.g. home office)
+- secure proxy (e.g. to circumvent censorship)
+
+Great variety of implementations: 
+- authentication mechanisms: pre-shared key (PSK), public key and certs,
+username and password
+- tunneling mechanisms: IPSec, OpenVPN, Wireguard
+- userspace, kernel, hardware implementations
+- Layer of connected nets: link or network layer (Inner protocol)
 
 ## Wireguard
 Install with `apt install wireguard`

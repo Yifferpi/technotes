@@ -2,6 +2,7 @@
 chapter = false
 title = "Bash"
 weight = 5
+tags=["programming","scripts"]
 +++
 
 - [Bash Essentials](#command-line-essentials)
@@ -10,9 +11,6 @@ weight = 5
     - [source vs. sh](#source-versus-sh)
     - [foreground and background jobs](#foreground-and-background-jobs)
 - [Bash Script Examples](#bash-script-examples)
-
-
-# Command line essentials
 
 The following paragraphs explain shell tricks and concepts that are very helpful
 in everyday use. They are mostly not commands.

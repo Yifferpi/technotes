@@ -1,6 +1,6 @@
 +++
 chapter = true
 title = "Coding / Languages"
-weight = 2
+weight = 1
 +++
 

@@ -15,6 +15,22 @@ and potentially list examples.
 - roll-back attack
 - DoS attack
 - relay / replay attack
+- supply chain attack
+
+- Slow Loris
+- POODLE
+- Heartbleed
+- Cuckoo attack (TPMs)
+
+- confused deputy attack (TEE: on ARM TrustZone)
+- Cold Boot attack
+
+
+- Runtime attacks:
+    - Buffer Overflow
+    - Format String
+    - Double free
+    - Use-after-free
 
 
 - proxy attack: contact other host for faster computation of checksum 

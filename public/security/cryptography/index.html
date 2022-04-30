@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.0-DEV" />
+    <meta name="generator" content="Relearn 2.9.2
+">
+    <meta name="description" content="Tech Blog / Tutorial Site">
+    <meta name="author" content="Basil Ottinger">
+    
+
+    <title>Cryptography :: </title>
+    <link href="/css/nucleus.css?1647503549" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647503549" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647503549" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647503549" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647503549" rel="stylesheet">
+    <link href="/css/theme.css?1647503549" rel="stylesheet">
+    <link href="/css/theme-blue.css?1647503549" rel="stylesheet">
+    <link href="/css/variant.css?1647503549" rel="stylesheet">
+    <link href="/css/print.css?1647503549" rel="stylesheet" media="print">
+    <script src="/js/jquery.min.js?1647503549"></script>
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+      }
+      :not(pre) > code.copy-to-clipboard-inline + span.copy-to-clipboard {
+          display: none;
+      }
+      :not(pre) > code.copy-to-clipboard-inline {
+          border-bottom-right-radius: 2px;
+          border-top-right-radius: 2px;
+          border-right-width: 1px;
+      }
+    </style>
+  </head>
+  <body class="" data-url="/security/cryptography/">
+    <script>
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+    </script>
+    <nav id="sidebar" class="">
+      <div id="header-wrapper">
+        <div id="header">
+<style>
+    p {color:black}
+</style><img src="https://img.icons8.com/ios-filled/100/000000/cute-monster.png"/>
+<p>technotes.yifferpi.ch</p>
+
+        </div>
+        <div class="searchbox">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1647503549"></script>
+        <script src="/js/auto-complete.js?1647503549"></script>
+        <!-- hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic: -->
+        <!-- https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72 -->
+        <script src="/js/search.js?1647503549"></script>
+      </div>
+      <div id="homelinks">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/coding/" title="Coding / Languages" class="dd-item"><a href="/coding/">Coding / Languages</a><ul>
+          <li data-nav-id="/coding/ansible/" title="Ansible" class="dd-item"><a href="/coding/ansible/">Ansible</a></li>
+          <li data-nav-id="/coding/bash/" title="Bash" class="dd-item"><a href="/coding/bash/">Bash</a></li>
+          <li data-nav-id="/coding/python/" title="Python" class="dd-item"><a href="/coding/python/">Python</a></li>
+          <li data-nav-id="/coding/latex/" title="Latex" class="dd-item"><a href="/coding/latex/">Latex</a></li></ul></li>
+          <li data-nav-id="/tools/" title="Tools / Concepts" class="dd-item"><a href="/tools/">Tools / Concepts</a><ul>
+          <li data-nav-id="/tools/git/" title="git" class="dd-item"><a href="/tools/git/">git</a></li>
+          <li data-nav-id="/tools/networking/" title="Networking tools" class="dd-item"><a href="/tools/networking/">Networking tools</a></li>
+          <li data-nav-id="/tools/ssh/" title="ssh" class="dd-item"><a href="/tools/ssh/">ssh</a></li>
+          <li data-nav-id="/tools/system_management/" title="System Management" class="dd-item"><a href="/tools/system_management/">System Management</a></li>
+          <li data-nav-id="/tools/vim/" title="Vim" class="dd-item"><a href="/tools/vim/">Vim</a></li>
+          <li data-nav-id="/tools/linux/" title="Linux Essentials" class="dd-item"><a href="/tools/linux/">Linux Essentials</a></li></ul></li>
+          <li data-nav-id="/security/" title="Security" class="dd-item parent"><a href="/security/">Security</a><ul>
+          <li data-nav-id="/security/firewalls/" title="Firewall" class="dd-item"><a href="/security/firewalls/">Firewall</a></li>
+          <li data-nav-id="/security/attack_types/" title="Security Basics" class="dd-item"><a href="/security/attack_types/">Security Basics</a></li>
+          <li data-nav-id="/security/utility/" title="utility tools" class="dd-item"><a href="/security/utility/">utility tools</a></li>
+          <li data-nav-id="/security/wireguard/" title="VPN" class="dd-item"><a href="/security/wireguard/">VPN</a></li>
+          <li data-nav-id="/security/cryptography/" title="Cryptography" class="dd-item active"><a href="/security/cryptography/">Cryptography</a></li></ul></li>
+          <li data-nav-id="/misc/" title="Miscellaneous" class="dd-item"><a href="/misc/">Miscellaneous</a><ul>
+          <li data-nav-id="/misc/encodings/" title="Encodings" class="dd-item"><a href="/misc/encodings/">Encodings</a></li>
+          <li data-nav-id="/misc/nginx/" title="nginx configuration" class="dd-item"><a href="/misc/nginx/">nginx configuration</a></li></ul></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://github.com/yifferpi"><i class='fab fa-fw fa-github'></i> GitHub</a></li>
+            <li><a class="padding" href="/tags/"><i class='fas fa-fw fa-tags'></i> Tags</a></li>
+          </ul>
+        </div>
+        <div id="footer"><a href="https://icons8.com/icon/eTTbyRJDHtpo/cute-monster">Cute Monster icon by Icons8</a>
+
+        </div>
+      </div>
+    </nav>
+    <div id="body">
+      <div id="overlay"></div>
+      <div class="padding highlightable">
+        <div id="top-bar">
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fas fa-bars"></i>
+              </a>
+            </span>
+            <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Startpage</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/security/"><span itemprop="name">Security</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/security/cryptography/" aria-disabled="true"><span itemprop="name">Cryptography</span></a></li>
+            </ol>
+          </div>
+            <div class="progress">
+              <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#security-properties">Security properties</a></li>
+    <li><a href="#security-primitives">Security primitives</a>
+      <ul>
+        <li><a href="#symmetric-encryption">Symmetric Encryption</a></li>
+        <li><a href="#message-authentication-codes">Message Authentication Codes</a></li>
+        <li><a href="#authenticated-encryption-with-associated-data-aead">Authenticated Encryption with Associated Data (AEAD)</a></li>
+        <li><a href="#diffie-hellmann-key-exchange">Diffie Hellmann Key Exchange</a></li>
+        <li><a href="#rsa">RSA</a></li>
+        <li><a href="#hash-functions">Hash functions</a></li>
+        <li><a href="#general-notes">General Notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+        </div>
+        <div id="head-tags">
+        </div>
+        <main id="body-inner">
+          <h1>Cryptography</h1>
+
+<h2 id="security-properties">Security properties</h2>
+<p>There are different security concepts that are gathered under the umbrella
+term &ldquo;security&rdquo;. In the following, we introduce some of these concepts and try
+to outline the difference and clarify for later discussions.</p>
+<ul>
+<li>
+<p><strong>Confidentiality</strong>: keep unauthorized people from reading the data / keep
+data secret. In some literature, there is further distinction between
+secrecy (keep <em>own</em> data secret) and
+confidentiality (keep <em>someone else&rsquo;s</em> data secret).</p>
+</li>
+<li>
+<p><strong>Authentication</strong>: knowing the source / sender of the data to be legitimate / the
+person they pretend to be (<em>data (origin) authentication</em>)
+or verifying the identity and liveness
+of another protocol participant (<em>entity authentication</em>).</p>
+</li>
+<li>
+<p><strong>Integrity</strong>: knowing data has not been changed / tampered with by someone
+unauthorized to do so.</p>
+</li>
+<li>
+<p><strong>Privacy</strong>: keep data <em>about a person</em> secret</p>
+</li>
+<li>
+<p><strong>Anonymity</strong>: keep <em>identity</em> of a protocol participant secret</p>
+</li>
+<li>
+<p><strong>Authorization</strong>: check whether someone is entitled to use a certain service / access
+certain data.</p>
+</li>
+<li>
+<p><strong>Availability</strong>: make sure communication cannot be prevented / protect against
+Denial of Service.</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="security-primitives">Security primitives</h2>
+<p>Security primitives is what we call basic building blocks for more complex
+cryptographic algorithms. We distunguish two types: symmetric and asymmetric.
+The simple but fundamental difference is the following:
+in symmetric procedures, there is <strong>one</strong> key only
+whereas in asymmetric procedures, there are two distinct keys where one is usually
+published and the other kept secret.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>confidentiality</th>
+<th>authentication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>symmetric</td>
+<td>Symmetric Encryption</td>
+<td>MAC</td>
+</tr>
+<tr>
+<td>asymmetric</td>
+<td>Public Key Encryption</td>
+<td>Digital Signature</td>
+</tr>
+</tbody>
+</table>
+<p>Symmetric cryptography is much faster / less expensive than asymmetric cryptography.
+This is reflected in the key size that is commonly used: symmetric procedures like
+AES use key sizes of around 128 to 256 bit whereas asymmetric procedures like RSA
+use keys of 4096 bit.</p>
+<p>The question then is why do we need asymmetric crypto?</p>
+<p>As we mentioned, symmetric procedures have only one key. That same key is used
+for both, encryption and decryption. This implies that communicating parties must
+both be in possession of this key, i.e., must have a shared secret. This is
+not always the case. This is where asymmetric crypto comes in handy.</p>
+<p><img src="symmetric_crypto.png?width=18cm" alt="Symmetric crypto"></p>
+<p>In asymmetric procedures on the other hand, there are two keys a and b. If a
+message is encrypted using key a, then it can only be decrypted with key b and vice
+versa. By making key a your private key and publishing key b you allow people to
+encrypt messages that only you can read.</p>
+<h3 id="symmetric-encryption">Symmetric Encryption</h3>
+<p>Symmetric encryption can be split into:</p>
+<ul>
+<li>block ciphers (pseudo-random permutation)</li>
+<li>stream ciphers (pseudo-random generator)</li>
+</ul>
+<p>Stream Ciphers: generate pseudo-random key stream from a key k and an initialization
+vector IV. xor the keystream with the plaintext to obtain a cipher text.
+Whoever can generate the same keystream can decrypt the message again.</p>
+<p>This is basically a one-time pad <strong>as long as the key stream is never reused</strong>.</p>
+<p>Examples: AES in CTR mode, Salsa, ChaCha (used in TLS1.3, Wireguard)</p>
+<p>Potential vulnerabilities: keystream reuse attacks (xor is dangerous)</p>
+<p>Block Ciphers: A substitution cipher with random permutation,
+the key defines a one-to-one mapping between an input block and output block.
+Each block of plaintext is encrypted separately.</p>
+<p>Encrypting the blocks by itself is <strong>not secure</strong>. There are different modes of
+operation for block ciphers:</p>
+<ul>
+<li>ECB (Electronic Code Book) (<strong>not secure</strong>: Linux penguin..)</li>
+<li>CBC (Cipher Block Chaining)
+Other modes that make a stream cipher from a block cipher again:</li>
+<li>CFB (Cipher Feedback)</li>
+<li>OFB (Output Feedback)</li>
+<li>CTR (Counter Mode)</li>
+<li>GCM (Galois Counter Mode) (encryption and integrity in single pass)</li>
+</ul>
+<p>Example: DES, AES</p>
+<h3 id="message-authentication-codes">Message Authentication Codes</h3>
+<p>Provide a cryptographic checksum for authentication / integrity.
+Compute <code>MAC(k, m)</code> where k is a shared symmetric key and m a message.</p>
+<p>Hash-based MAC are referred to as <em>HMAC</em>. Block cipher based MAC: <em>CMAC</em></p>
+<h3 id="authenticated-encryption-with-associated-data-aead">Authenticated Encryption with Associated Data (AEAD)</h3>
+<p>AEAD has two goals: encrypt the plaintext message and ensure the integrity
+of the ciphertext and its associated data.</p>
+<p><img src="aead_encrypt.png?width=15cm" alt="AEAD Encrypt"></p>
+<p>Essentially aims to combine encryption and integrity protection in a secure way.
+Uses &ldquo;Encrypt-then-MAC&rdquo; to avoid problems with &ldquo;MAC-then-Encrypt&rdquo; and
+&ldquo;Encrypt-and-MAC&rdquo;
+Comes as a single ready-to-use cryptographic primitive with a simple API.</p>
+<p>AES-GCM is a nonce-based AEAD built from a block cipher in CTR mode and the Galois MAC.
+Today mostly with AES (therefore AES-GCM)</p>
+<h3 id="diffie-hellmann-key-exchange">Diffie Hellmann Key Exchange</h3>
+<p>Public values: large prime p, generator g
+Alice has secret value a, Bob has secret value b</p>
+<p>TODO: exchange example in small numbers, exchange graphic,
+clock analogy, color mixing example</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+    Alice -&gt;&gt; Bob: How are you?
+    Bob --&gt;&gt; Alice: Good. How bout you?
+</code></pre><p>The problem: Man-in-the-Middle attack. (&ndash;&gt; discussion of Out-of-Band channels)</p>
+<h3 id="rsa">RSA</h3>
+<p>Textbook RSA:</p>
+<ol>
+<li>pick p, q large secret primes.</li>
+<li>pick e, compute d such that e*d = 1 mod (p-1)(q-1)</li>
+<li>
+<ul>
+<li>public key: e, N=pq</li>
+<li>private key: d</li>
+</ul>
+</li>
+</ol>
+<p>The keypair can be used for either digital signatures or public key encryption.</p>
+<h3 id="hash-functions">Hash functions</h3>
+<p>A hash function maps an arbitrary-length input to a finite length output.
+Properties of a secure (cryptographic) hash function:</p>
+<ul>
+<li>One-way</li>
+<li>Weak collision resistence</li>
+<li>Strong collision resistence</li>
+</ul>
+<p>Examples: MD5 (<em>broken</em>), SHA-1 (<em>broken</em>), SHA-2, SHA-3</p>
+<p>One-way hash chains:</p>
+<ul>
+<li>use in reverse order of construction for e.g. time-delayed authentication</li>
+</ul>
+<p>Merkle Hash Trees:
+<img src="merkle_hash_tree.png?width=12cm" alt="Merkle Hash Tree"></p>
+<p>D_i are data values. Verifier knows T_0 hash value.</p>
+<h3 id="general-notes">General Notes</h3>
+<p>Difference between authentication with MAC vs. with Digital Signature:
+authentication with MAC enables <em>the receiver</em> to verify the origin. But the
+receiver cannot convince a third party. Problem: the one who can verify can also forge.</p>
+
+          <footer class="footline">
+          </footer>
+        </main>
+      </div>
+      <div id="navigation">
+        <a class="nav nav-prev" href="/security/wireguard/" title="VPN"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/misc/" title="Miscellaneous"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1647503549"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647503549"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1647503549"></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1647503549"></script>
+    <script src="/js/featherlight.min.js?1647503549"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1647503549"></script>
+    <script src="/js/mermaid.min.js?1647503549"></script>
+    <script>
+      if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+        mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
+      }
+    </script>
+    <script src="/js/relearn.js?1647503549"></script>
+  </body>
+</html>

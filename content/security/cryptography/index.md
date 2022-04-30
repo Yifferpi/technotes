@@ -125,6 +125,13 @@ Alice has secret value a, Bob has secret value b
 TODO: exchange example in small numbers, exchange graphic,
 clock analogy, color mixing example
 
+```mermaid
+sequenceDiagram
+    Alice ->> Bob: How are you?
+    Bob -->> Alice: Good. How bout you?
+```
+
+
 The problem: Man-in-the-Middle attack. (--> discussion of Out-of-Band channels)
 
 ### RSA

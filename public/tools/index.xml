@@ -29,9 +29,9 @@ nmap Host discovery Ping Scan: nmap -sP 192.168.1.0/24
       <link>https://yifferpi.ch/tools/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yifferpi.ch/tools/ssh/</guid>
-      <description>Secure SHell SSH  forward port reachable from remote host: ssh -L localport:192.168.x.x:remoteport user@domain.tld -p flag to use a different port backticks to execute a command remotely!  ssh-copy-id user@host to copy own public key to host
-SSHD config file location: /etc/ssh/sshd_config
- set PubkeyAuthentification to yes for auth via public key set PasswordAuthentication to no to only allow public key systemctl restart sshd.service for changes to take effect  all of the above requires sudo</description>
+      <description>This page introduces diverse topics / functions related to SSH which go beyond the basics. They are mostly unused by beginners and casual SSH users but are very much appreciated once you know about them.
+NoteSSH is sometimes referred to as &amp;ldquo;poor man&amp;rsquo;s VPN&amp;rdquo;.
+  There are two distinct parts to SSH: the client and the server. A user&amp;rsquo;s client config can generally be found at ~/.ssh/  The ~/.</description>
     </item>
     <item>
       <title>System Management</title>
@@ -41,6 +41,17 @@ SSHD config file location: /etc/ssh/sshd_config
       <description>This page is concerned with tools that help with management of a linux (ubuntu) system from the command line.
 nmcli  nmcli dev wifi to list available wifi nmcli dev wifi connect SSID --ask: connect to a new wifi nmcli con [up|down] SSID manage stored connection  nm-applet for i3bar utility
 bluetoothctl  bluetoothctl to enter interactive  in bluetooth, you pair once (exchange initial info) and then connect (two distinct steps!</description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>https://yifferpi.ch/tools/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/tools/vim/</guid>
+      <description>On this page, a jumble of Vim shortcuts and functions are collected that I find very useful.
+Delete text Some examples:
+ ciw: cut word (without following space), then go into insert mode daw: cut word including following space dd: delete entire line, remain in normal mode  c goes into insert mode after deleting whereas d only cuts
+small w only considers letters big W also considers brackets
+ ctrl-v to enter Visual block mode shift-I to go insert mode, change entire block  Command :&amp;gt;&amp;gt; and :&amp;lt;: shift two indents to the right / one to the left</description>
     </item>
     <item>
       <title>Linux Essentials</title>

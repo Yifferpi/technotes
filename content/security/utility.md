@@ -35,3 +35,7 @@ reverse engineering tool with great decompiler
 - printing addresses with `print main`, subtracting labels allowed!
 - `checksec`: display which security measures are active in the binary
 
+- `info file` prints info about the file, e.g., entry point, symbols, etc.
+
+- `info file` prints info about the file, e.g., entry point, symbols, etc.
+

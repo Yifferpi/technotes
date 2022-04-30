@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>editor on </title>
+    <link>https://yifferpi.ch/tags/editor/</link>
+    <description>Recent content in editor on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://yifferpi.ch/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim</title>
+      <link>https://yifferpi.ch/tools/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/tools/vim/</guid>
+      <description>On this page, a jumble of Vim shortcuts and functions are collected that I find very useful.
+Delete text Some examples:
+ ciw: cut word (without following space), then go into insert mode daw: cut word including following space dd: delete entire line, remain in normal mode  c goes into insert mode after deleting whereas d only cuts
+small w only considers letters big W also considers brackets
+ ctrl-v to enter Visual block mode shift-I to go insert mode, change entire block  Command :&amp;gt;&amp;gt; and :&amp;lt;: shift two indents to the right / one to the left</description>
+    </item>
+  </channel>
+</rss>

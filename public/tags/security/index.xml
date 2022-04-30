@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on </title>
+    <link>https://yifferpi.ch/tags/security/</link>
+    <description>Recent content in security on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://yifferpi.ch/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPN</title>
+      <link>https://yifferpi.ch/security/wireguard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://yifferpi.ch/security/wireguard/</guid>
+      <description>VPN basics Virtual Private Networks (VPN) create secure channels between two endpoints over an untrusted network (e.g. the Internet). There is generally a setup phase, followed by the tunneling phase.
+Typical properties are authentication of the other endpoint (e.g. with MACs), confidentiality (usually based on symmetric crypto), and some sort of replay suppresion (i.e. sequence numbers).
+Common Setups:
+ site-to-site (e.g. regional office) host-to-site (e.g. home office) secure proxy (e.g. to circumvent censorship)  Great variety of implementations:</description>
+    </item>
+  </channel>
+</rss>

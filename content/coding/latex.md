@@ -3,7 +3,6 @@ title = "Latex"
 tags = ["writing"]
 +++
 
-# Personal Latex cheat sheet
 
 Mostly a summary of "Not so short Intro to LaTex"
 
